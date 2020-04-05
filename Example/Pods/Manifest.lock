@@ -1,0 +1,28 @@
+PODS:
+  - DifferenceKit (1.1.5):
+    - DifferenceKit/Core (= 1.1.5)
+    - DifferenceKit/UIKitExtension (= 1.1.5)
+  - DifferenceKit/Core (1.1.5)
+  - DifferenceKit/UIKitExtension (1.1.5):
+    - DifferenceKit/Core
+  - ListKit (1.0.0):
+    - DifferenceKit
+
+DEPENDENCIES:
+  - ListKit (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - DifferenceKit
+
+EXTERNAL SOURCES:
+  ListKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DifferenceKit: 516f12e336ed65a3a0665847b5c3cb5cad4bd4ea
+  ListKit: 3de41b824f5206fd48e891f1e89bdcaa074ef294
+
+PODFILE CHECKSUM: 78858e0032b1c18890ae03ec8e78622f4314835d
+
+COCOAPODS: 1.8.3

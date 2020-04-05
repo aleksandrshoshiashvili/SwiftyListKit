@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xq8-ae-mzc" customClass="SegmentWithButtonView" customModule="LastDDM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6dS-CE-tqu">
+                    <rect key="frame" x="8" y="8" width="359" height="29"/>
+                    <segments>
+                        <segment title="Default"/>
+                        <segment title="No animations"/>
+                        <segment title="Custom"/>
+                    </segments>
+                    <connections>
+                        <action selector="handleSegmentControlAction:" destination="Xq8-ae-mzc" eventType="valueChanged" id="r9s-Uz-ZWw"/>
+                    </connections>
+                </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbU-mM-zhO">
+                    <rect key="frame" x="8" y="52" width="359" height="30"/>
+                    <state key="normal" title="Reload table view"/>
+                    <connections>
+                        <action selector="handleReloadAction:" destination="Xq8-ae-mzc" eventType="touchUpInside" id="E33-Ao-Du2"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="TbU-mM-zhO" secondAttribute="bottom" constant="8" id="CWA-T7-lWQ"/>
+                <constraint firstItem="6dS-CE-tqu" firstAttribute="leading" secondItem="Xq8-ae-mzc" secondAttribute="leading" constant="8" id="Xaw-Dc-7el"/>
+                <constraint firstAttribute="trailing" secondItem="TbU-mM-zhO" secondAttribute="trailing" constant="8" id="YZX-0T-enZ"/>
+                <constraint firstAttribute="trailing" secondItem="6dS-CE-tqu" secondAttribute="trailing" constant="8" id="pIw-rz-8Rz"/>
+                <constraint firstItem="TbU-mM-zhO" firstAttribute="leading" secondItem="Xq8-ae-mzc" secondAttribute="leading" constant="8" id="s3t-pq-N3l"/>
+                <constraint firstItem="6dS-CE-tqu" firstAttribute="top" secondItem="Xq8-ae-mzc" secondAttribute="top" constant="8" id="xRa-s5-9XT"/>
+                <constraint firstItem="TbU-mM-zhO" firstAttribute="top" secondItem="6dS-CE-tqu" secondAttribute="bottom" constant="16" id="xXv-cD-J10"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="nzp-T8-K28"/>
+            <connections>
+                <outlet property="segmentControl" destination="6dS-CE-tqu" id="pbx-KI-ghM"/>
+            </connections>
+            <point key="canvasLocation" x="53.600000000000001" y="48.575712143928037"/>
+        </view>
+    </objects>
+</document>

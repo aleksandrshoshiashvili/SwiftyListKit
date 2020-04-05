@@ -1,0 +1,27 @@
+{
+  "name": "ListKit",
+  "version": "1.0.0",
+  "summary": "A short description of ListKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/aleksandrshoshiashvili/ListKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Alexander Shoshiashvili": "aleksandr.shoshiashvili@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/aleksandrshoshiashvili/ListKit.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ListKit/Classes/**/*",
+  "dependencies": {
+    "DifferenceKit": [
+
+    ]
+  }
+}
