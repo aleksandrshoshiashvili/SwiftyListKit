@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'ListKit'
+  s.name             = 'SwiftyListKit'
   s.version          = '1.0.0'
   s.summary          = 'TableView data source'
 
@@ -21,10 +21,10 @@ Pod::Spec.new do |s|
 TableView data source
                        DESC
 
-  s.homepage         = 'https://github.com/aleksandrshoshiashvili/ListKit'
+  s.homepage         = 'https://github.com/aleksandrshoshiashvili/SwiftListKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Alexander Shoshiashvili' => 'aleksandr.shoshiashvili@gmail.com' }
-  s.source           = { :git => 'https://github.com/aleksandrshoshiashvili/ListKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/aleksandrshoshiashvili/SwiftListKit', :tag => s.version.to_s }
 
   s.ios.deployment_target = '11.0'
   s.swift_version = '5.0'
