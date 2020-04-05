@@ -15,8 +15,6 @@ open class TableViewDataSourceAnimated<S: TableListSection>: TableViewDataSource
     public typealias Section = S
     public typealias ItemModel = S.ItemModel
     
-    public var sections: [Section] = []
-    
     public var updateAnimation: TableListUpdateAnimation
     
     public init(
@@ -69,15 +67,15 @@ open class TableViewDataSourceAnimated<S: TableListSection>: TableViewDataSource
     }
     
     public func getSections() -> [Section] {
-        return sections
+        return sectionModels
     }
     
     public func update(with sections: [Section]) {
-        self.sections = sections
+        self.sectionModels = sections
     }
     
     public func getViewModel(for indexPath: IndexPath) -> ItemModel? {
-        guard let section = sections[safe: indexPath.section],
+        guard let section = sectionModels[safe: indexPath.section],
             let viewModel = section.rows[safe: indexPath.row] else {
                 return nil
         }
