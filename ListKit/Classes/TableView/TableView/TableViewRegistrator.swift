@@ -43,7 +43,7 @@ public class TableViewRegistrator {
         
         var bundle: Bundle?
         
-        if let namespace = Bundle.main.infoDictionary?["CFBundleExecutable"] as? String,
+        if let namespace = normalizedNamespace(),
             let listItemClass: AnyClass = NSClassFromString("\(namespace).\(reuseIdentifier)") {
             bundle = Bundle(for: listItemClass)
         } else {
@@ -52,7 +52,7 @@ public class TableViewRegistrator {
         
         guard let _ = bundle?.path(forResource: reuseIdentifier, ofType: "nib") else {
             // if in code
-            if let namespace = Bundle.main.infoDictionary?["CFBundleExecutable"] as? String,
+            if let namespace = normalizedNamespace(),
                 let listItemClass: AnyClass = NSClassFromString("\(namespace).\(reuseIdentifier)") {
                 switch type {
                 case .cell:
@@ -74,6 +74,15 @@ public class TableViewRegistrator {
             tableView?.register(nib, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
         }
         registeredIds.insert(reuseIdentifier)
+    }
+    
+    // MARK: - Helper
+    
+    private func normalizedNamespace() -> String? {
+        guard let namespace = Bundle.main.infoDictionary?["CFBundleExecutable"] as? String else {
+            return nil
+        }
+        return namespace.replacingOccurrences(of: " ", with: "_")
     }
     
 }

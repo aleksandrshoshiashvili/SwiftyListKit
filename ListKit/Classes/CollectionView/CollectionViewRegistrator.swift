@@ -8,45 +8,54 @@
 import UIKit
 
 public class CollectionViewRegistrator {
-  
-  public enum CollectionObjectType {
-    case cell
-    case supplementaryView
-  }
-  
-  private weak var collectionView: UICollectionView?
-  private var registeredIds: Set<String> = []
-  
-  public init(collectionView: UICollectionView?) {
-    self.collectionView = collectionView
-  }
-  
-  func register(withReuseIdentifier reuseIdentifier: String,
-                forType type: CollectionObjectType) {
-    if registeredIds.contains(reuseIdentifier) {
-      return
+    
+    public enum CollectionObjectType {
+        case cell
+        case supplementaryView
     }
     
-    var bundle: Bundle?
+    private weak var collectionView: UICollectionView?
+    private var registeredIds: Set<String> = []
     
-    if let namespace = Bundle.main.infoDictionary?["CFBundleExecutable"] as? String,
-        let listItemClass: AnyClass = NSClassFromString("\(namespace).\(reuseIdentifier)") {
-        bundle = Bundle(for: listItemClass)
-    } else {
-        bundle = Bundle(for: TableViewRegistrator.self)
+    public init(collectionView: UICollectionView?) {
+        self.collectionView = collectionView
     }
     
-    guard let _ = bundle?.path(forResource: reuseIdentifier, ofType: "nib") else {
-        return
+    func register(withReuseIdentifier reuseIdentifier: String,
+                  forType type: CollectionObjectType) {
+        if registeredIds.contains(reuseIdentifier) {
+            return
+        }
+        
+        var bundle: Bundle?
+        
+        if let namespace = normalizedNamespace(),
+            let listItemClass: AnyClass = NSClassFromString("\(namespace).\(reuseIdentifier)") {
+            bundle = Bundle(for: listItemClass)
+        } else {
+            bundle = Bundle(for: TableViewRegistrator.self)
+        }
+        
+        guard let _ = bundle?.path(forResource: reuseIdentifier, ofType: "nib") else {
+            return
+        }
+        let nib = UINib(nibName: reuseIdentifier, bundle: bundle)
+        switch type {
+        case .cell:
+            collectionView?.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
+        case .supplementaryView:
+            break
+        }
+        registeredIds.insert(reuseIdentifier)
     }
-    let nib = UINib(nibName: reuseIdentifier, bundle: bundle)
-    switch type {
-    case .cell:
-      collectionView?.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
-    case .supplementaryView:
-      break
+    
+    // MARK: - Helper
+    
+    private func normalizedNamespace() -> String? {
+        guard let namespace = Bundle.main.infoDictionary?["CFBundleExecutable"] as? String else {
+            return nil
+        }
+        return namespace.replacingOccurrences(of: " ", with: "_")
     }
-    registeredIds.insert(reuseIdentifier)
-  }
-  
+    
 }
