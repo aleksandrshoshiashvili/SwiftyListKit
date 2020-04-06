@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftyListKit'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = 'TableView data source'
 
 # This description is used to generate tags and improve search results.
@@ -26,7 +26,7 @@ TableView data source
   s.author           = { 'Alexander Shoshiashvili' => 'aleksandr.shoshiashvili@gmail.com' }
   s.source           = { :git => 'https://github.com/aleksandrshoshiashvili/SwiftListKit', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '10.0'
   s.swift_version = '5.0'
 
   s.source_files = 'ListKit/Classes/**/*'
