@@ -14,7 +14,7 @@ public protocol SetupTableProtocol: class {
     func setupTableView()
 }
 
-extension SetupTableProtocol where Self: BaseAnimatedTableViewController {
+extension SetupTableProtocol where Self: AnimatedTableListProtocol {
     public func setupTableView() {
         setDefaultDataSource()
     }

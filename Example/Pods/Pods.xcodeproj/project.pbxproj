@@ -37,6 +37,7 @@
 		7BB820BB33F9C6D8DA0003B9F465D8B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961DE7F3A3812E6B0267747737D0AA9D /* Foundation.framework */; };
 		7EA5C1CEFE6F85074D7ADECD02FE914D /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290EC8FDD22957B465FAF8C87F09AAAA /* CollectionView.swift */; };
 		813EE516DC0AD8B4C9551FE75E58B420 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221A429FDD31FFAA7DEAA9A4BCF1697 /* TableView.swift */; };
+		898198EC243CF7A600E455A4 /* AnimatedTableListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898198EA243CF78B00E455A4 /* AnimatedTableListProtocol.swift */; };
 		92670A36368D221712FE08FA8EDA60E5 /* CollectionViewRegistrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A786108F6A8E05A423DEAF829AC914 /* CollectionViewRegistrator.swift */; };
 		978C50236ECACCF89A084F52B392D544 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB39142FB2939623B28FA69A0763E6B /* BaseTableViewController.swift */; };
 		9D0549832B69A114CE19F91827704F9F /* BaseAnimatedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16CF9BBB76A9E7A79E6357C982A2DAA /* BaseAnimatedCollectionViewController.swift */; };
@@ -157,6 +158,7 @@
 		84567F6E64FE951F57F9A896104E98AC /* AnyDifferentiable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyDifferentiable.swift; path = Sources/AnyDifferentiable.swift; sourceTree = "<group>"; };
 		84D3003097A13A3E24D69CB4C246EFB8 /* DifferenceKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DifferenceKit-prefix.pch"; sourceTree = "<group>"; };
 		877B5BC023A4608D00A99DEF131D88CD /* Differentiable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Differentiable.swift; path = Sources/Differentiable.swift; sourceTree = "<group>"; };
+		898198EA243CF78B00E455A4 /* AnimatedTableListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTableListProtocol.swift; sourceTree = "<group>"; };
 		8FCFE7D3F512C00EC32D0C9BDAEB5094 /* Changeset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Changeset.swift; path = Sources/Changeset.swift; sourceTree = "<group>"; };
 		903BE7EE789A382A3800EBF4A82A21A0 /* DifferenceKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DifferenceKit-umbrella.h"; sourceTree = "<group>"; };
 		91430FC95BB576E710A8887C20468AF8 /* ListKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ListKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -404,6 +406,7 @@
 				574B9AE1EACE5EC9B30F461B75ECA629 /* CreateTableProtocol.swift */,
 				247432A7E3211C39677188A54C9D6069 /* SetupTableProtocol.swift */,
 				93FE654088852496507D15C52FC36276 /* UpdateTableProtocol.swift */,
+				898198EA243CF78B00E455A4 /* AnimatedTableListProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -773,6 +776,7 @@
 				D901997FA77F52009865AB1B13850A9E /* ListLoadable.swift in Sources */,
 				34C8FBA27973EF54CEA4899848CE8CD6 /* ListLoader.swift in Sources */,
 				DDBF2B07E85A7D1B8962AF8BE1994728 /* ListLoaderProtocol.swift in Sources */,
+				898198EC243CF7A600E455A4 /* AnimatedTableListProtocol.swift in Sources */,
 				FEC0B47FAFF86C1EB24D5757EE3C20DA /* ListSectionProtocol.swift in Sources */,
 				47735BF91890DDB011D1243F060AD6E7 /* ListUpdater.swift in Sources */,
 				C1758F9ADAE9336401FDCCDF79258D51 /* SeparatorView.swift in Sources */,

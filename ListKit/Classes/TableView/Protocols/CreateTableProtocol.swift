@@ -30,3 +30,21 @@ extension CreateTableProtocol where Self: BaseAnimatedTableViewController {
         setupTableView()
     }
 }
+
+extension CreateTableProtocol where Self: UIView {
+    public func createAndSetupTableView(with style: UITableView.Style) {
+        tableView = TableView(frame: self.frame, style: style)
+        self.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        if #available(iOS 11.0, *) {
+            tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        }
+        self.sendSubviewToBack(tableView)
+        setupTableView()
+    }
+}
