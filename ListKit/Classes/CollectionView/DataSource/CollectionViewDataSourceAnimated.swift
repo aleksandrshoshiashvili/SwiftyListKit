@@ -15,8 +15,6 @@ open class CollectionViewDataSourceAnimated<S: CollectionListSection>: Collectio
     public typealias Section = S
     public typealias ItemModel = S.ItemModel
     
-    public var sections: [Section] = []
-    
     public override init(configureCell: @escaping ConfigureCell = { (dataSource, collectionView, indexPath, viewModel) -> UICollectionViewCell in
         dataSource.registerListItem(withIdentifier: viewModel.reuseIdentifier,
                                     type: .cell,
@@ -55,15 +53,15 @@ open class CollectionViewDataSourceAnimated<S: CollectionListSection>: Collectio
     }
     
     public func getSections() -> [Section] {
-        return sections
+        return sectionModels
     }
     
     public func update(with sections: [Section]) {
-        self.sections = sections
+        self.sectionModels = sections
     }
     
     public func getViewModel(for indexPath: IndexPath) -> ItemModel? {
-        guard let section = sections[safe: indexPath.section],
+        guard let section = sectionModels[safe: indexPath.section],
             let viewModel = section.rows[safe: indexPath.row] else {
                 return nil
         }
