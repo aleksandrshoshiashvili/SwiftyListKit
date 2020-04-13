@@ -1,4 +1,4 @@
-# SwiftListKit
+# SwiftyListKit
 
 TableView data source
 ======================================
@@ -16,13 +16,13 @@ TableView data source
 
 ## How
 
-Разберем как работает `SwiftListKit` на примере одного из экранов тестового приложения.
+Разберем как работает `SwiftyListKit` на примере одного из экранов тестового приложения.
 
 ![Example app](https://i.imgur.com/LJJwKLR.png)
 
 Как мы можем заметить, на экране отображаются ячейки с хэдером. Причем ячейки отличаются друг от друга только наполнением (текст) и стилем (цвет текста и фона).
 
-Для начала нам нужен `ViewController` с таблицей, в `SwiftListKit` уже есть реализованные контроллеры, от которых можно наследоваться:
+Для начала нам нужен `ViewController` с таблицей, в `SwiftyListKit` уже есть реализованные контроллеры, от которых можно наследоваться:
 
 ```swift
 class PlainExampleViewController: BaseAnimatedTableViewController {
@@ -34,7 +34,7 @@ class PlainExampleViewController: BaseAnimatedTableViewController {
 
 Мы выберем контроллер с возможностью анимированного апдейта таблиц. На данном этапе мы создали контроллер `PlainExampleViewController` с `plain` таблицей, с реализованным dataSource и delegate для таблицы. Просто, не правда ли?
 
-В SwiftListKit вы не работаете с UITableViewCell, UITableViewHeaderFooterView напрямую, вы работаете с вью моделями `ListItemViewModel`, которые описывают будущий вид ячейки. 
+В SwiftyListKit вы не работаете с UITableViewCell, UITableViewHeaderFooterView напрямую, вы работаете с вью моделями `ListItemViewModel`, которые описывают будущий вид ячейки. 
 
 `ListItemViewModel` поддерживает несколько типов инициализации, для нашего примера подойдет следующий:
 
@@ -195,15 +195,15 @@ update(with: [section])
 Всё, таблица отрисовалась с нашими ячейками. 
 
 Если, например, вы запросили новые данные с сервера, они пришли и вы хотите обновить только те ячейки, которые изменились, то:
-просто создайте секции как и в примере выше с новыми данными и вызовите тот же самый метод `update(with: [section])`, встроенный в SwiftListKit difference алгоритм найдет отличия в моделях и обновит только те ячейки, которые изменились.
+просто создайте секции как и в примере выше с новыми данными и вызовите тот же самый метод `update(with: [section])`, встроенный в SwiftyListKit difference алгоритм найдет отличия в моделях и обновит только те ячейки, которые изменились.
 
 Если вам нужно всё равно обновить всю таблицу целиком и без анимации, то выставите значение `noAnimations` в свойство контроллера `updateAnimation`.
 
 ### Auto registration
 
-В `SwiftListKit` есть функция авторегистрации ячеек/хедеров/футеров, которая позволяет вам забыть о существовании метода `tableView.register(...)`.
+В `SwiftyListKit` есть функция авторегистрации ячеек/хедеров/футеров, которая позволяет вам забыть о существовании метода `tableView.register(...)`.
 
-Но есть два требования, чтобы всё работало как надо: название класса ячейки и её reuseIdentifier должны совпадать, а также таблица должна быть наследником класса `TableView` и использоваться dataSource от `SwiftListKit`'а.
+Но есть два требования, чтобы всё работало как надо: название класса ячейки и её reuseIdentifier должны совпадать, а также таблица должна быть наследником класса `TableView` и использоваться dataSource от `SwiftyListKit`'а.
 
  - reuseIdentifier
 
@@ -219,17 +219,17 @@ update(with: [section])
     }
 ```
 
-- TableView и dataSource SwiftListKit'а
+- TableView и dataSource SwiftyListKit'а
 
 Если вы используете любой из `BaseTableViewController, BaseAnimatedTableViewController или BaseAnimatedRxTableViewController`, то за вас уже всё сделано.
 
-Если же вы хотите использовать функционал авторегистрации без использования «базового контроллера», то просто вместо `UITableView` используйте `TableView` в связке с любым dataSource из SwiftListKit'а (с любым наследнииком `TableViewDataSource`). 
+Если же вы хотите использовать функционал авторегистрации без использования «базового контроллера», то просто вместо `UITableView` используйте `TableView` в связке с любым dataSource из SwiftyListKit'а (с любым наследнииком `TableViewDataSource`). 
 
 
 ### Diffs and animations
 
 Чтобы воспользоваться встроенным механизмом анимирования обновлений таблицы, используемый вами dataSource должен быть наследником `TableViewDataSourceAnimated`. В неё вы можете использовать проперти `var updateAnimation: ListUpdateAnimation` для настройки анимаций.
-Для вашего удобства в `SwiftListKit` встроены два «базовых» контроллера, которые содержат в себе анимированный dataSource: `BaseAnimatedTableViewController` и `BaseAnimatedRxTableViewController`.
+Для вашего удобства в `SwiftyListKit` встроены два «базовых» контроллера, которые содержат в себе анимированный dataSource: `BaseAnimatedTableViewController` и `BaseAnimatedRxTableViewController`.
 При использовании «базовых» контроллеров вы можете менять свойство для настройки анимации у него, а не у dataSource.
 
 Доступные следующие виды анимации:
@@ -247,10 +247,10 @@ public enum ListUpdateAnimation {
 
  - `default` — это по сути `standard` с `fade`. Диффы в этом виде анимаций включены
  - - `standard(configuration: TableAnimationConfiguration)` — это способ настроить анимацию стандартными для таблицы анимациями, в том числе `none`. Диффы включены
- - - `custom(configuration: Animation)` — этот вариант позволяет реализовать абсолютно любой способ анимирования обновления, в `SwiftListKit` есть несколько встроенных примеров, которые можно посмотреть (и использовать) в `ListUpdateAnimations`. Диффы включены
+ - - `custom(configuration: Animation)` — этот вариант позволяет реализовать абсолютно любой способ анимирования обновления, в `SwiftyListKit` есть несколько встроенных примеров, которые можно посмотреть (и использовать) в `ListUpdateAnimations`. Диффы включены
  - - `noAnimations` — это `reloadData()` без анимаций. Диффы выключены
 
-В  `SwiftListKit` встроен алгоритм диффов, который вычисляет разницу между ячейками и секциями, которые надо отрисовать и перерисовывает лишь те, которые изменились. Это дает прирост производительности и выглядит лучше.
+В  `SwiftyListKit` встроен алгоритм диффов, который вычисляет разницу между ячейками и секциями, которые надо отрисовать и перерисовывает лишь те, которые изменились. Это дает прирост производительности и выглядит лучше.
 
 За «одинаковость» ячеек отвечает `hashString` в `ListItemDataModel`. 
 По дефолту значение `hashString` вычисляется автоматически, пытаясь взять значения из хранимых проперти в `String`. Если же вам нужно какое-то другое поведение, то просто переопределите `hashString` в вашей структуре/классе, реализующей `ListItemDataModel`.
@@ -293,7 +293,7 @@ struct TitleWithDescriptionDataModel: ListItemDataModel {
 
 ### Shimmering
 
-В `SwiftListKit` встроена компонента `ListLoader`, которая показывает `shimmering` эффект на ячейках и хэдерах/футерах. 
+В `SwiftyListKit` встроена компонента `ListLoader`, которая показывает `shimmering` эффект на ячейках и хэдерах/футерах. 
 
 ![Example](https://i.imgur.com/IOCt7YU.png)
 
