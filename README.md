@@ -325,7 +325,7 @@ struct TitleWithDescriptionDataModel: ListItemDataModel {
 
 ## Requirements
 
-Swift 5.0, iOS > 11.0
+Swift 5.0, iOS > 10.0
 
 ## Installation
 
