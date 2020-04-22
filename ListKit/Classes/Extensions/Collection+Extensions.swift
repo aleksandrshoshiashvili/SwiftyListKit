@@ -1,6 +1,6 @@
 //
 //  Collection+Extensions.swift
-//  ListKit
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 06/11/2018.
 //

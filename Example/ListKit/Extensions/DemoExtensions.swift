@@ -1,6 +1,6 @@
 //
 //  DemoExtensions.swift
-//  LastDDM
+//  SwiftyListKit
 //
 //  Created by Александр Шошиашвили on 03/08/2019.
 //  Copyright © 2019 Alexander Shoshiashvili. All rights reserved.

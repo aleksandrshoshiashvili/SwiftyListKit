@@ -1,8 +1,9 @@
 //
 //  TableViewCell.swift
-//  ListKit
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 23/01/2019.
+//  Copyright © 2019 Alexander Shoshiashvili. All rights reserved.
 //
 
 import UIKit

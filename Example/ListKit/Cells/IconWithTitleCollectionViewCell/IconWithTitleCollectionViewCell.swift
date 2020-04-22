@@ -1,8 +1,8 @@
 // IconWithTitleCollectionViewCell.swift
-// ListKit
+// SwiftyListKit
 //
 // Created by Alexander Shoshiashvili on 06/11/2018.
-//Copyright © 2018 CocoaPods. All rights reserved.
+// Copyright © 2018 Alexander Shoshiashvili. All rights reserved.
 //
 
 import UIKit

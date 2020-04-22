@@ -1,6 +1,6 @@
 //
 //  TableView.swift
-//  TableKit
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 23/02/2018.
 //  Copyright © 2018 Alexander Shoshiashvili. All rights reserved.

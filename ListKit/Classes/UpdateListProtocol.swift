@@ -1,9 +1,9 @@
 //
 //  UpdateListProtocol.swift
-//  SBank2UI
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 27/06/2018.
-//  Copyright © 2018 HIQ. All rights reserved.
+//  Copyright © 2018 Alexander Shoshiashvili. All rights reserved.
 //
 
 // MARK: - Protocols

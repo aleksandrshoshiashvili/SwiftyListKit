@@ -1,6 +1,6 @@
 //
 //  GroupedExampleViewController.swift
-//  LastDDM
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 25/03/2019.
 //  Copyright © 2019 Alexander Shoshiashvili. All rights reserved.

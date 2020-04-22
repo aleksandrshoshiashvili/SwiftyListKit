@@ -1,6 +1,6 @@
 //
 //  ListSectionProtocol.swift
-//  LastDDM
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 28/02/2019.
 //  Copyright © 2019 Alexander Shoshiashvili. All rights reserved.

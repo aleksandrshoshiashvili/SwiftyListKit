@@ -1,8 +1,9 @@
 //
 //  AnimatedTableListProtocol.swift
-//  DifferenceKit
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 07.04.2020.
+//  Copyright © 2020 Alexander Shoshiashvili. All rights reserved.
 //
 
 import UIKit

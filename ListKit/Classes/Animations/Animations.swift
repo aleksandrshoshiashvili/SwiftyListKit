@@ -1,6 +1,6 @@
 //
 //  ListUpdateAnimation.swift
-//  LastDDM
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 13/02/2019.
 //  Copyright © 2019 Alexander Shoshiashvili. All rights reserved.

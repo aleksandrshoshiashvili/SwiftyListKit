@@ -1,6 +1,6 @@
 //
 //  ListItemHeightStyle.swift
-//  ListKit
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 09/12/2018.
 //

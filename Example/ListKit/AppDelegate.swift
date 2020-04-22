@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  ListKit
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 04/05/2020.
 //  Copyright (c) 2020 Alexander Shoshiashvili. All rights reserved.

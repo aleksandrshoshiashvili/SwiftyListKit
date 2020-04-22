@@ -1,6 +1,6 @@
 //
 //  ListItemStyle+DividerHeader.swift
-//  LastDDM
+//  SwiftyListKit
 //
 //  Created by Александр Шошиашвили on 04/08/2019.
 //  Copyright © 2019 Alexander Shoshiashvili. All rights reserved.

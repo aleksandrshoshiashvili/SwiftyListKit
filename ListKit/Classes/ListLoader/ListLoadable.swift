@@ -1,6 +1,6 @@
 //
 //  ListLoadable.swift
-//  LastDDM
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 31.01.20.
 //  Copyright © 2020 Alexander Shoshiashvili. All rights reserved.

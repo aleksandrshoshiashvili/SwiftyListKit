@@ -1,6 +1,6 @@
 //
 //  CollectionViewDelegate.swift
-//  LastDDM
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 04/04/2019.
 //  Copyright © 2019 Alexander Shoshiashvili. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  ListItemConfiguration.swift
-//  ListKit
+//  SwiftyListKit
 //
 //  Created by Alexander Shoshiashvili on 18/12/2018.
 //

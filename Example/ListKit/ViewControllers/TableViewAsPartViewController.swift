@@ -1,9 +1,9 @@
 //
 //  TableViewAsPartViewController.swift
-//  ListKit_Example
+//  SwiftyListKit_Example
 //
 //  Created by Alexander Shoshiashvili on 07.04.2020.
-//  Copyright © 2020 CocoaPods. All rights reserved.
+//  Copyright © 2020 Alexander Shoshiashvili. All rights reserved.
 //
 
 import UIKit

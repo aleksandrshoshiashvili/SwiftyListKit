@@ -1,9 +1,9 @@
 //
 //  String+Extensions.swift
-//  ListKit_Example
+//  SwiftyListKit_Example
 //
 //  Created by Alexander Shoshiashvili on 06/11/2018.
-//  Copyright © 2018 CocoaPods. All rights reserved.
+//  Copyright © 2018 Alexander Shoshiashvili. All rights reserved.
 //
 
 import UIKit
