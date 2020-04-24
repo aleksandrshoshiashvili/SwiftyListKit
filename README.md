@@ -26,7 +26,7 @@ SwiftyListKit is dependent on [DifferenceKit](https://ra1028.github.io/Differenc
 
 ## Requirements
 
-Swift 5.0, iOS > 10.0
+Swift 5.0, iOS >= 10.0
 
 ## Installation
 
