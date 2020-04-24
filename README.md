@@ -3,18 +3,53 @@
 TableView data source
 ======================================
 
+- [Features](#features)
+- [Dependency](#dependency)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [How to use](#how-to-use)
+- [Credits](#credits)
+- [License](#license)
+
 ## Features
 
-- [x] **O(N)** difference algorithm
-- [x] Declarative approach to creating simple or complex list views
-- [x] Supports **extending your item and section structures**
-  - just extend your item with `ListRowsProtocol` or `ListSectionProtocol`
-- [x] Standard animation types for `Insert`, `Reload` and `Delete` (Automatic, Fade, ...)
+- [x] Declarative approach to creating simple and complex list views
 - [x] Custom reload/update animation
 - [x] Builtin load view with shimmering effect: `ListLoader`
-- [x] Works with `UITableView` and `UICollectionView`
+- [x] Integrated **O(N)** difference algorithm (provided by `DifferenceKit` framework)
+- [x] Full `UITableView` support
+- [ ] Full `UICollectionView` support
 
-## How
+## Dependency
+
+SwiftyListKit is dependent on [DifferenceKit](https://ra1028.github.io/DifferenceKit). DifferenceKit is a fast and flexible O(n) difference algorithm framework for Swift collection. 
+
+## Requirements
+
+Swift 5.0, iOS > 10.0
+
+## Installation
+
+### CocoaPods
+
+ is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate SwiftyListKit into your Xcode project using [CocoaPods](https://cocoapods.org), add the following entry in your `Podfile`:
+
+```ruby
+pod 'SwiftyListKit'
+```
+
+Then run `pod install`.
+
+In any file you'd like to use SwiftyListKit in, don't forget to import the framework with import `SwiftyListKit`.
+
+### Manually
+
+- Just drop `SwiftyListKit` folder in your project.
+- You're ready to use `SwiftyListKit`!
+
+## How to use
+
+[Example app](https://github.com/aleksandrshoshiashvili/SwiftyListKit/tree/master/Example)
 
 Разберем как работает `SwiftyListKit` на примере одного из экранов тестового приложения.
 
@@ -323,10 +358,9 @@ struct TitleWithDescriptionDataModel: ListItemDataModel {
 Вы можете нестроить `ListLoader` с помощью `ListLoaderConfiguration` как вам нужно, и вызвать  `view.showLoader(with: [placeholderSection])`. 
 Как только данные придут и новые секции будут сформированы, вы можете вызвать метод `view.hideLoader(with: sections)`: он уберет лоадер и обновит таблицу с новыми данными.
 
-## Requirements
+## Credits
 
-Swift 5.0, iOS > 10.0
 
-## Installation
+## License
 
-### CocoaPods
+SwiftyListKit is released under the MIT license. [See LICENSE](https://github.com/aleksandrshoshiashvili/SwiftyListKit/blob/master/LICENSE) for details.
