@@ -30,7 +30,8 @@ class ExamplesListViewController: BaseAnimatedTableViewController {
         let options = [("Plain with animations", "PlainExampleViewController"),
                        ("Grouped with animations", "GroupedExampleViewController"),
                        ("Collection view", "CollectionExampleViewController"),
-                       ("Table View as part of view", "TableViewAsPartViewController")]
+                       ("Table View as part of view", "TableViewAsPartViewController"),
+                       ("View controller without base class", "ControllerWithProtocolOnly")]
         
         var sections: [TableListSection] = []
         

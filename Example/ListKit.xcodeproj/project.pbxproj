@@ -38,6 +38,7 @@
 		89D55CD5243A0A8700E30FAA /* ViewStyle+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D55CCF243A0A8600E30FAA /* ViewStyle+Cell.swift */; };
 		89D55CD6243A0A8700E30FAA /* ViewStyle+ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D55CD0243A0A8600E30FAA /* ViewStyle+ImageView.swift */; };
 		89D55CD8243A0A8700E30FAA /* ViewStyle+Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D55CD2243A0A8600E30FAA /* ViewStyle+Label.swift */; };
+		D25C9C7E24604592007705BD /* ControllerWithProtocolOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25C9C7D24604592007705BD /* ControllerWithProtocolOnly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		89D55CD2243A0A8600E30FAA /* ViewStyle+Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewStyle+Label.swift"; sourceTree = "<group>"; };
 		8EE72CCB992B0B44F47B4E2D /* Pods-ListKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ListKit_Tests/Pods-ListKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CD1B7C8308E022F4426F20D1 /* Pods_ListKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D25C9C7D24604592007705BD /* ControllerWithProtocolOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerWithProtocolOnly.swift; sourceTree = "<group>"; };
 		E72E7BDD830752514102E249 /* Pods-ListKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-ListKit_Tests/Pods-ListKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E95172B16EC39923BC4BF9BE /* SwiftyListKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftyListKit.podspec; path = ../SwiftyListKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F4BD61D518A95B5315781941 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				89D55C93243A09AF00E30FAA /* PlainExampleViewController.swift */,
 				898198F0243CFA5700E455A4 /* TableViewAsPartViewController.swift */,
 				89D55C8F243A09AE00E30FAA /* CollectionExampleViewController.swift */,
+				D25C9C7D24604592007705BD /* ControllerWithProtocolOnly.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D25C9C7E24604592007705BD /* ControllerWithProtocolOnly.swift in Sources */,
 				89D55CCB243A0A8000E30FAA /* SegmentWithButtonView.swift in Sources */,
 				89D55CB6243A0A0600E30FAA /* String+Extensions.swift in Sources */,
 				89D55CB4243A0A0600E30FAA /* TitleCellDataModel.swift in Sources */,
