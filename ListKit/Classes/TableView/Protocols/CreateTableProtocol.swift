@@ -13,7 +13,7 @@ public protocol CreateTableProtocol: SetupTableProtocol {
     func createAndSetupTableView(with style: UITableView.Style)
 }
 
-extension CreateTableProtocol where Self: BaseAnimatedTableViewController {
+extension CreateTableProtocol where Self: UIViewController {
     public func createAndSetupTableView(with style: UITableView.Style) {
         tableView = TableView(frame: view.frame, style: style)
         view.addSubview(tableView)

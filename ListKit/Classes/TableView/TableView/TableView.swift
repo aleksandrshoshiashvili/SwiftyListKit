@@ -8,21 +8,21 @@
 
 import UIKit
 
-class TableView: UITableView {
+open class TableView: UITableView {
 
-    var registrator: TableViewRegistrator!
+    open var registrator: TableViewRegistrator!
     
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         registrator = TableViewRegistrator(tableView: self)
     }
     
-    override init(frame: CGRect, style: UITableView.Style) {
+    override public init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style) 
         registrator = TableViewRegistrator(tableView: self)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
