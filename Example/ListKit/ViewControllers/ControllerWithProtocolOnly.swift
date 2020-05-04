@@ -7,24 +7,42 @@
 //
 
 import UIKit
+import ListKit
 
-class ControllerWithProtocolOnly: UIViewController {
+class ControllerWithProtocolOnly: UIViewController, AnimatedTableListProtocol {
+    
+    var tableView: UITableView!
+    var dataSource: TableViewDataSourceAnimated<TableListSection>!
+    var syncDelegate: SyncDelegate<TableListSection>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        
 
-        // Do any additional setup after loading the view.
+        self.setup(withTableStyle: .plain)
+        reloadViewModels()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func reloadViewModels() {
+        self.update(with: [getSectionWithRandomViewModels()])
     }
-    */
+    
+    // MARK: - Generate random rows/headers
+    
+    private func getSectionWithRandomViewModels() -> TableListSection {
+        var rowViewModels: [TableItemViewModel] = []
+        
+        for _ in 0 ..< Int.random(in: 0...100) {
+            let oneLineDataModel = TitleCellDataModel(title: .randomString())
+            let cellViewModel = TableItemViewModel(data: oneLineDataModel,
+                                                  map: OneTitleTableViewCell.map1,
+                                                  style: .default)
+            rowViewModels.append(cellViewModel)
+        }
+        
+        let section = TableListSection(rows: rowViewModels)
+        return section
+    }
 
 }
