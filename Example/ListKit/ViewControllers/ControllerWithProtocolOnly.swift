@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ListKit
+import SwiftyListKit
 
 class ControllerWithProtocolOnly: UIViewController, AnimatedTableListProtocol {
     
@@ -19,7 +19,6 @@ class ControllerWithProtocolOnly: UIViewController, AnimatedTableListProtocol {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-
         self.setup(withTableStyle: .plain)
         reloadViewModels()
     }

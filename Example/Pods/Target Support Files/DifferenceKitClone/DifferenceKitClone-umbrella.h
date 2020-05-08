@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double DifferenceKitVersionNumber;
-FOUNDATION_EXPORT const unsigned char DifferenceKitVersionString[];
+FOUNDATION_EXPORT double DifferenceKitCloneVersionNumber;
+FOUNDATION_EXPORT const unsigned char DifferenceKitCloneVersionString[];
 

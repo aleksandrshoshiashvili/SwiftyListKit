@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ListKit
+import SwiftyListKit
 
 final class CollectionExampleViewController: BaseAnimatedCollectionViewController {
     

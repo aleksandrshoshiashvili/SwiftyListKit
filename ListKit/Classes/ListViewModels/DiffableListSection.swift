@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import DifferenceKit
+import DifferenceKitClone
 
 internal class DiffableListSection<T: ListSectionProtocol>: Differentiable {
     var differenceIdentifier: String = ""

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ListKit
+import SwiftyListKit
 
 extension ViewStyle where T: UILabel {
     static var uppercased: ViewStyle<T> {

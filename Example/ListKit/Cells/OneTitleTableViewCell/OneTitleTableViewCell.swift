@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ListKit
+import SwiftyListKit
 
 public class OneTitleTableViewCell: UITableViewCell, TableItem {
     

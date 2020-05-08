@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DifferenceKit
+import DifferenceKitClone
 
 public struct CollectionItemViewModel: StringHashable, Differentiable {
 

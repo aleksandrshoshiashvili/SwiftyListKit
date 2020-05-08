@@ -24,8 +24,8 @@ open class TableViewDataSourceAnimated<S: TableListSection>: TableViewDataSource
                                     type: .cell,
                                     tableView: tableView)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.reuseIdentifier)
-        let listItem = cell as! ListItem
+        let dequeuedCell = tableView.dequeueReusableCell(withIdentifier: viewModel.reuseIdentifier)
+        let listItem = dequeuedCell as! ListItem
         
         if let map = viewModel.map {
             map(viewModel.data, listItem)
@@ -43,7 +43,13 @@ open class TableViewDataSourceAnimated<S: TableListSection>: TableViewDataSource
             delegatableItem.set(delegate: delegate)
         }
         
-        return listItem as! UITableViewCell
+        let cell = listItem as! UITableViewCell
+        
+        if let selectionStyle = tableView.selectionStyle {
+            cell.selectionStyle = selectionStyle
+        }
+        
+        return cell
         },
         titleForHeaderInSection: @escaping  TitleForHeaderInSection = { _, _ in nil },
         titleForFooterInSection: @escaping TitleForFooterInSection = { _, _ in nil },

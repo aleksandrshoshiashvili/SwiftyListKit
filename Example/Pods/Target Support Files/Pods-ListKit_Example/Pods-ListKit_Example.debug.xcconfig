@@ -1,9 +1,9 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/DifferenceKit" "${PODS_CONFIGURATION_BUILD_DIR}/ListKit"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/DifferenceKitClone" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftyListKit"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/DifferenceKit/DifferenceKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ListKit/ListKit.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/DifferenceKitClone/DifferenceKitClone.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftyListKit/SwiftyListKit.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "DifferenceKit" -framework "ListKit" -framework "UIKit"
+OTHER_LDFLAGS = $(inherited) -framework "DifferenceKitClone" -framework "SwiftyListKit"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

@@ -1,3 +1,4 @@
+/// original source: https://github.com/ra1028/DifferenceKit
 /// A differentiable section with model and array of elements.
 ///
 /// Arrays are can not be identify each one and comparing whether has updated from other one.

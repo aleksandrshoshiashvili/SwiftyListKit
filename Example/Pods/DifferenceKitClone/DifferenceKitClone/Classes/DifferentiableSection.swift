@@ -1,3 +1,4 @@
+/// original source: https://github.com/ra1028/DifferenceKit
 /// Represents the section of collection that can be identified and compared to whether has updated.
 public protocol DifferentiableSection: Differentiable {
     /// A type representing the elements in section.

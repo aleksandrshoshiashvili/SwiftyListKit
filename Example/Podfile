@@ -1,5 +1,5 @@
 use_frameworks!
 
 target 'ListKit_Example' do
-  pod 'ListKit', :path => '../'
+  pod 'SwiftyListKit', :path => '../'
 end

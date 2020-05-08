@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ListKit
+import SwiftyListKit
 
 public protocol WithImageTableViewCellDelegate: Delegatable {
     func didTapImageView()

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ListKit
+import SwiftyListKit
 
 final public class DividerHeader: UITableViewHeaderFooterView, TableItem {
     

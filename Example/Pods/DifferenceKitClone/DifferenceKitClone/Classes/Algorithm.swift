@@ -1,3 +1,4 @@
+/// original source: https://github.com/ra1028/DifferenceKit
 // swiftlint:disable cyclomatic_complexity
 
 public extension StagedChangeset where Collection: RangeReplaceableCollection, Collection.Element: Differentiable {

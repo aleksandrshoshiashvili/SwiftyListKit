@@ -1,3 +1,4 @@
+/// original source: https://github.com/ra1028/DifferenceKit
 /// A set of changes in the sectioned collection.
 ///
 /// Changes to the section of the linear collection should be empty.

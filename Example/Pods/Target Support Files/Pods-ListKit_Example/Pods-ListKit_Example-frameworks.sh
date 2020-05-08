@@ -161,12 +161,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/DifferenceKit/DifferenceKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/ListKit/ListKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DifferenceKitClone/DifferenceKitClone.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyListKit/SwiftyListKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/DifferenceKit/DifferenceKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/ListKit/ListKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DifferenceKitClone/DifferenceKitClone.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyListKit/SwiftyListKit.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

@@ -1,3 +1,4 @@
+/// original source: https://github.com/ra1028/DifferenceKit
 /// Represents a value that can compare whether the content are equal.
 public protocol ContentEquatable {
     /// Indicate whether the content of `self` is equals to the content of

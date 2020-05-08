@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ListKit
+import SwiftyListKit
 
 public struct TitleCellDataModel: ListItemDataModel {
     public var tag: Any?

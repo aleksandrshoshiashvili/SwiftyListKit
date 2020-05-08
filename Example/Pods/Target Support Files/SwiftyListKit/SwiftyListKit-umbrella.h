@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double ListKitVersionNumber;
-FOUNDATION_EXPORT const unsigned char ListKitVersionString[];
+FOUNDATION_EXPORT double SwiftyListKitVersionNumber;
+FOUNDATION_EXPORT const unsigned char SwiftyListKitVersionString[];
 

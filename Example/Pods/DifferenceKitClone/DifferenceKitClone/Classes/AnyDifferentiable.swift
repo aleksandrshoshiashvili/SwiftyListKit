@@ -1,3 +1,4 @@
+/// original source: https://github.com/ra1028/DifferenceKit
 /// A type-erased differentiable value.
 ///
 /// The `AnyDifferentiable` type hides the specific underlying types.

@@ -1,3 +1,4 @@
+/// original source: https://github.com/ra1028/DifferenceKit
 /// Represents the value that identified for differentiate.
 public protocol ContentIdentifiable {
     /// A type representing the identifier.

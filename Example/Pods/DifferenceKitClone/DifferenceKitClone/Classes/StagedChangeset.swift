@@ -1,3 +1,4 @@
+/// original source: https://github.com/ra1028/DifferenceKit
 /// An ordered collection of `Changeset` as staged set of changes in the sectioned collection.
 ///
 /// The order is representing the stages of changesets.

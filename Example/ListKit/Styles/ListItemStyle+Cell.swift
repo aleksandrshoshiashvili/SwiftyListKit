@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ListKit
+import SwiftyListKit
 
 extension ListItemStyle where T: OneTitleTableViewCell {
     

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ListKit
+import SwiftyListKit
 
 public struct ImageCellDataModel: ListItemDataModel {
     public var image: UIImage? = UIImage()

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ListKit
+import SwiftyListKit
 
 class ExamplesListViewController: BaseAnimatedTableViewController {
     

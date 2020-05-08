@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DifferenceKit
+import DifferenceKitClone
 
 class ListUpdater {
     

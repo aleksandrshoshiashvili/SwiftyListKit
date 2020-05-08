@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftyListKit'
-  s.version          = '1.0.10'
+  s.version          = '1.0.11'
   s.summary          = 'TableView data source'
 
 # This description is used to generate tags and improve search results.
@@ -36,5 +36,5 @@ TableView data source
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.dependency 'DifferenceKit'
+  s.dependency 'DifferenceKitClone'
 end

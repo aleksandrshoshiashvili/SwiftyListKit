@@ -1,3 +1,4 @@
+/// original source: https://github.com/ra1028/DifferenceKit
 /// Represents the path to a specific element in a tree of nested collections.
 ///
 /// - Note: `Foundation.IndexPath` is disadvantageous in performance.
