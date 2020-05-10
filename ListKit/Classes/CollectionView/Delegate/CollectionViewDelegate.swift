@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class CollectionViewDelegate<S: CollectionListSection>: NSObject, UICollectionViewDelegate {
+open class CollectionViewDelegate<S: CollectionListSection>: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     unowned var dataSource: CollectionViewDataSource<S>
     
     public typealias ModelAtIndex = ((UICollectionView, IndexPath, S.ItemModel?) -> Void)
@@ -69,6 +69,21 @@ open class CollectionViewDelegate<S: CollectionListSection>: NSObject, UICollect
     
     public func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
         sendCallBack(for: didEndDisplayingSupplementaryView, collectionView: collectionView, supplementaryView: view, indexPath: indexPath)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let model = try? dataSource.model(at: indexPath) as? S.ItemModel else {
+            if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+                return layout.itemSize
+            } else {
+                return UICollectionViewFlowLayout.automaticSize
+            }
+        }
+        let heightStyle = model.heightStyle
+        switch heightStyle {
+        case .static(let height, let width):
+            return CGSize(width: width, height: height)
+        }
     }
     
     // MARK: Private
