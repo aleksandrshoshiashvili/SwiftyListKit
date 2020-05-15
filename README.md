@@ -49,6 +49,8 @@ In any file you'd like to use SwiftyListKit in, don't forget to import the frame
 
 ## How to use
 
+### !!! Documentation is outdated !!!
+
 [Example app](https://github.com/aleksandrshoshiashvili/SwiftyListKit/tree/master/Example)
 
 Разберем как работает `SwiftyListKit` на примере одного из экранов тестового приложения.
