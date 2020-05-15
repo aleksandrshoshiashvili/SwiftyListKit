@@ -40,7 +40,7 @@ pod 'SwiftyListKit'
 
 Then run `pod install`.
 
-In any file you'd like to use SwiftyListKit in, don't forget to import the framework with import `SwiftyListKit`.
+In any file you'd like to use SwiftyListKit in, don't forget to import the framework with `import SwiftyListKit`.
 
 ### Manually
 
