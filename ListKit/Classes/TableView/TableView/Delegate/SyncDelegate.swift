@@ -24,7 +24,37 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
     public typealias ScrollWillBeginZooming = ((_ scrollView: UIScrollView, _ view: UIView?) -> Void)
     public typealias ScrollDidEndZooming = ((_ scrollView: UIScrollView, _ view: UIView?, _ scale: CGFloat) -> Void)
     public typealias ShouldScrollToTop = ((_ scrollView: UIScrollView) -> Bool)
-
+    public typealias EditingStyle = (UITableView, IndexPath, TableViewDataSource<S>.I?) -> UITableViewCell.EditingStyle
+    public typealias EditActions = (UITableView, IndexPath, TableViewDataSource<S>.I?) -> [UITableViewRowAction]?
+    
+    @available(iOS 11.0, *)
+    public typealias SwipeAction = (UITableView, IndexPath, TableViewDataSource<S>.I?) -> UISwipeActionsConfiguration?
+    
+    private var _onLeadingSwipeAction: Any?
+    @available(iOS 11.0, *)
+    public var onLeadingSwipeAction: SwipeAction? {
+        get {
+            return _onLeadingSwipeAction as? SwipeAction
+        }
+        set {
+            _onLeadingSwipeAction = newValue
+        }
+    }
+    
+    private var _onTrailingSwipeAction: Any?
+    @available(iOS 11.0, *)
+    public var onTrailingSwipeAction: SwipeAction? {
+        get {
+            return _onTrailingSwipeAction as? SwipeAction
+        }
+        set {
+            _onTrailingSwipeAction = newValue
+        }
+    }
+    
+    public var onEditingStyle: EditingStyle?
+    public var onEditActions: EditActions?
+    
     public var viewForHeaderAtSection: ViewForHeaderFooterInSection?
     public var heightForHeaderAtSection: HeightForHeaderFooterInSection!
     
@@ -204,7 +234,45 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
             tableCell.configureSeparator(with: separator)
         }
     }
-
+    
+    @available(iOS 11.0, *)
+    public func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        do {
+            let model = try dataSource.model(at: indexPath) as? S.ItemModel
+            return onLeadingSwipeAction?(tableView, indexPath, model)
+        } catch {
+            return onLeadingSwipeAction?(tableView, indexPath, nil)
+        }
+    }
+    
+    @available(iOS 11.0, *)
+    public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        do {
+            let model = try dataSource.model(at: indexPath) as? S.ItemModel
+            return onTrailingSwipeAction?(tableView, indexPath, model)
+        } catch {
+            return onTrailingSwipeAction?(tableView, indexPath, nil)
+        }
+    }
+    
+    public func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        do {
+            let model = try dataSource.model(at: indexPath) as? S.ItemModel
+            return onEditActions?(tableView, indexPath, model)
+        } catch {
+            return onEditActions?(tableView, indexPath, nil)
+        }
+    }
+    
+    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        do {
+            let model = try dataSource.model(at: indexPath) as? S.ItemModel
+            return onEditingStyle?(tableView, indexPath, model) ?? .none
+        } catch {
+            return onEditingStyle?(tableView, indexPath, nil) ?? .none
+        }
+    }
 
     // MARK: - UIScrollViewDelegate
 
