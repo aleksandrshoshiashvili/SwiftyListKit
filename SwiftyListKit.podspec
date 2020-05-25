@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftyListKit'
-  s.version          = '1.0.13'
-  s.summary          = 'TableView data source'
+  s.version          = '1.0.14'
+  s.summary          = 'Framework for building flexible, reusable and fast lists'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TableView data source
+Framework for building flexible, reusable and fast lists
                        DESC
 
   s.homepage         = 'https://github.com/aleksandrshoshiashvili/SwiftListKit'
