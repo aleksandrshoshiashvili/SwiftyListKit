@@ -24,7 +24,7 @@ final class InCodeTableViewCell: UITableViewCell, TableItem {
 }
 
 extension InCodeTableViewCell {
-    static func map(model: TitleCellDataModel, cell: InCodeTableViewCell) {
-        cell.textLabel?.text = model.title
+    static func map(model: TextDataModel, cell: InCodeTableViewCell) {
+        cell.textLabel?.text = model.text
     }
 }

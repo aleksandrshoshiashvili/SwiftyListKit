@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DifferenceKitClone
+import DifferenceKit
 
 class ListUpdater {
     
@@ -37,7 +37,7 @@ class ListUpdater {
                 let newSections = data.map({ (section) -> S in
                     let convertedSection = S.init(header: section.model.header,
                                                   footer: section.model.footer,
-                                                  rows: section.model.rows)
+                                                  rows: section.elements)
                     return convertedSection
                 })
                 dataSource.setSections(newSections)
@@ -87,7 +87,7 @@ class ListUpdater {
                 let newSections = data.map({ (section) -> S in
                     let convertedSection = S.init(header: section.model.header,
                                                   footer: section.model.footer,
-                                                  rows: section.model.rows)
+                                                  rows: section.elements)
                     return convertedSection
                 })
                 dataSource.setSections(newSections)

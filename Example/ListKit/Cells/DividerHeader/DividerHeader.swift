@@ -21,7 +21,7 @@ final public class DividerHeader: UITableViewHeaderFooterView, TableItem {
 }
 
 extension DividerHeader {
-    static func mapTitle(model: TitleCellDataModel, cell: DividerHeader) {
-        cell.titleLabel.text = model.title
+    static func mapTitle(model: TextDataModel, cell: DividerHeader) {
+        cell.titleLabel.text = model.text
     }
 }

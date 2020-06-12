@@ -15,6 +15,7 @@ class ExamplesListViewController: BaseAnimatedTableViewController {
         super.viewDidLoad(withTableStyle: .grouped)
         showExamplesOptions()
         navigationItem.title = "Examples"
+        view.backgroundColor = tableView.backgroundColor
     }
     
     func showExamplesOptions() {
@@ -31,12 +32,13 @@ class ExamplesListViewController: BaseAnimatedTableViewController {
                        ("Grouped with animations", "GroupedExampleViewController"),
                        ("Collection view", "CollectionExampleViewController"),
                        ("Table View as part of view", "TableViewAsPartViewController"),
-                       ("View controller without base class", "ControllerWithProtocolOnly")]
+                       ("View controller without base class", "ControllerWithProtocolOnly"),
+                       ("Profile view controller", "ProfileViewController")]
         
         var sections: [TableListSection] = []
         
         for option in options {
-            let oneLineDataModel = TitleCellDataModel(tag: option.1, title: option.0)
+            let oneLineDataModel = TextDataModel(tag: option.1, text: option.0)
             
             let style: ListItemStyle<OneTitleTableViewCell> = ListItemStyle<OneTitleTableViewCell> {
                 $0.titleLabel.textColor = .black

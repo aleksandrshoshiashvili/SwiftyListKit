@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftyListKit'
-  s.version          = '1.0.14'
+  s.version          = '1.0.15'
   s.summary          = 'Framework for building flexible, reusable and fast lists'
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Framework for building flexible, reusable and fast lists
+Powerful framework for building flexible, reusable and fast lists with a declarative approach
                        DESC
 
   s.homepage         = 'https://github.com/aleksandrshoshiashvili/SwiftListKit'
@@ -36,5 +36,5 @@ Framework for building flexible, reusable and fast lists
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.dependency 'DifferenceKitClone'
+  s.dependency 'DifferenceKit'
 end

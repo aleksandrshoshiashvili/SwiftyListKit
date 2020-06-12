@@ -49,7 +49,7 @@ final class TableViewAsPartViewController: UIViewController {
         var rowViewModels: [TableItemViewModel] = []
         
         for _ in 0 ..< Int.random(in: 0...100) {
-            let oneLineDataModel = TitleCellDataModel(title: .randomString())
+            let oneLineDataModel = TextDataModel(text: .randomString())
             let cellViewModel = TableItemViewModel(data: oneLineDataModel,
                                                   map: OneTitleTableViewCell.map1,
                                                   style: .default)

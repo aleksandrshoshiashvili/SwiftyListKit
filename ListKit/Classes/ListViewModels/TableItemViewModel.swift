@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import DifferenceKitClone
+import DifferenceKit
 
 public typealias MapDataToItem<T: ListItemDataModel, U: ListItem> = ((T, U) -> Void)
 public typealias MapDataToItemClosure = ((ListItemDataModel, ListItem) -> Void)

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DifferenceKitClone
+import DifferenceKit
 
 extension UITableView {
     func reload<C>(

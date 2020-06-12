@@ -8,7 +8,7 @@
 import UIKit
 import SwiftyListKit
 
-public class OneTitleTableViewCell: UITableViewCell, TableItem {
+public class OneTitleTableViewCell: TableViewCell, TableItem {
     
     @IBOutlet weak var titleLabel: UILabel!
 
@@ -25,8 +25,8 @@ public class OneTitleTableViewCell: UITableViewCell, TableItem {
 }
 
 extension OneTitleTableViewCell {
-    static func map1(model: TitleCellDataModel, cell: OneTitleTableViewCell) {
-        cell.titleLabel.text = model.title
+    static func map1(model: TextDataModel, cell: OneTitleTableViewCell) {
+        cell.titleLabel.text = model.text
     }
     
     static func map2(model: ImageCellDataModel, cell: OneTitleTableViewCell) {

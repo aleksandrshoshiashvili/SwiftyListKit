@@ -73,7 +73,7 @@ final class PlainExampleViewController: BaseAnimatedTableViewController {
             
             // OneLineCell
             
-            let oneLineDataModel = TitleCellDataModel(title: "123")
+            let oneLineDataModel = TextDataModel(text: "123")
             
             // Init ViewModel with Data, custom Map and default style
             let cellViewModel = TableItemViewModel(data: oneLineDataModel,
@@ -81,9 +81,9 @@ final class PlainExampleViewController: BaseAnimatedTableViewController {
                                                   style: .default)
             
             
-            let oneLineDataModel1 = TitleCellDataModel(title: .randomString())
+            let oneLineDataModel1 = TextDataModel(text: .randomString())
             
-            let inCodeDataModel = TitleCellDataModel(title: .randomString(length: 5))
+            let inCodeDataModel = TextDataModel(text: .randomString(length: 5))
             let inCodeCellViewModel = TableItemViewModel(data: inCodeDataModel,
                                                          map: InCodeTableViewCell.map)
             
@@ -105,7 +105,7 @@ final class PlainExampleViewController: BaseAnimatedTableViewController {
             let customStyle = customStyle1 + customStyle2
             
             // Init ViewModel with Data, custom Map and custom style
-            let oneLineDataModel2 = TitleCellDataModel(title: .randomString())
+            let oneLineDataModel2 = TextDataModel(text: .randomString())
             let cellViewModel2 = TableItemViewModel(data: oneLineDataModel2,
                                                    map: OneTitleTableViewCell.map1,
                                                    style: .custom(style: customStyle))
@@ -118,7 +118,7 @@ final class PlainExampleViewController: BaseAnimatedTableViewController {
         
         // Header
         
-        let dividerDataModel = TitleCellDataModel(title: .randomString())
+        let dividerDataModel = TextDataModel(text: .randomString())
         
         let headerViewModel = TableItemViewModel(data: dividerDataModel,
                                                 map: DividerHeader.mapTitle)

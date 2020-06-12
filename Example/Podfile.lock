@@ -1,23 +1,28 @@
 PODS:
-  - DifferenceKitClone (0.1.1)
-  - SwiftyListKit (1.0.11):
-    - DifferenceKitClone
+  - DifferenceKit (1.1.5):
+    - DifferenceKit/Core (= 1.1.5)
+    - DifferenceKit/UIKitExtension (= 1.1.5)
+  - DifferenceKit/Core (1.1.5)
+  - DifferenceKit/UIKitExtension (1.1.5):
+    - DifferenceKit/Core
+  - SwiftyListKit (1.0.14):
+    - DifferenceKit
 
 DEPENDENCIES:
   - SwiftyListKit (from `../`)
 
 SPEC REPOS:
   trunk:
-    - DifferenceKitClone
+    - DifferenceKit
 
 EXTERNAL SOURCES:
   SwiftyListKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DifferenceKitClone: 0926d1e389cfe43a0d45f17adbabc64ea6e1354d
-  SwiftyListKit: 3432fcd7a66e6ac05942cc1952656f1af3805c8f
+  DifferenceKit: 516f12e336ed65a3a0665847b5c3cb5cad4bd4ea
+  SwiftyListKit: c5eeaa5ef11cbd36c0715dbbf80992d055f2b6c5
 
 PODFILE CHECKSUM: c0ee572323b12af3b6ee1859345a4d76b7a3913b
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.9.3

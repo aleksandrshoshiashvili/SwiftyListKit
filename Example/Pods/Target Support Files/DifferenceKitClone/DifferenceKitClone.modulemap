@@ -1,6 +1,0 @@
-framework module DifferenceKitClone {
-  umbrella header "DifferenceKitClone-umbrella.h"
-
-  export *
-  module * { export * }
-}

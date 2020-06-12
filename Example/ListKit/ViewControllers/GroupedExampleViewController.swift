@@ -14,6 +14,7 @@ final class GroupedExampleViewController: BaseAnimatedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad(withTableStyle: .grouped)
         reloadViewModels()
+        view.backgroundColor = tableView.backgroundColor
     }
     
     // MARK: - Generate random sections
@@ -43,8 +44,7 @@ final class GroupedExampleViewController: BaseAnimatedTableViewController {
         
         // Header
         
-        var dividerDataModel = TitleCellDataModel()
-        dividerDataModel.title = .randomString()
+        let dividerDataModel = TextDataModel(tag: nil, text: .randomString())
         
         let headerViewModel = TableItemViewModel(data: dividerDataModel,
                                                 map: DividerHeader.mapTitle)

@@ -43,7 +43,8 @@ final class CollectionExampleViewController: BaseAnimatedCollectionViewControlle
         
         for _ in 0 ..< 20 {
             // Init by cell type. Use for cell that have only `static` elements
-            let data = TitleAndImageDataModel(title: .randomString(), image: UIImage(named: "placeholder"))
+            let data = TitleAndImageDataModel(title: .randomString(),
+                                              image: UIImage(named: "backdropPlaceholder"))
             let cellViewModel = CollectionItemViewModel(data: data, map: IconWithTitleCollectionViewCell.map)
             viewModels.append(cellViewModel)
         }
