@@ -92,18 +92,13 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
     public var onScrollViewDidChangeAdjustedContentInset: ScrollView?
     
     public init(dataSource: TableViewDataSource<S>,
-                heightForRow: HeightForRow? = nil,
-                separatorForRow: SeparatorForRow? = { _ in return (.default) },
-                viewForHeaderAtSection: ViewForHeaderFooterInSection? = nil,
-                heightForHeaderAtSection: HeightForHeaderFooterInSection? = nil,
-                viewForFooterInSection: ViewForHeaderFooterInSection? = nil,
-                heightForFooterAtSection: HeightForHeaderFooterInSection? = nil) {
+                heightForRow: HeightForRow? = nil) {
         self.dataSource = dataSource
         super.init()
-        self.viewForHeaderAtSection = viewForHeaderAtSection ?? defaultViewForHeaderFooter
-        self.heightForHeaderAtSection = heightForHeaderAtSection ?? defaultHeightForHeaderFooter
-        self.viewForFooterAtSection = viewForFooterAtSection ?? defaultViewForHeaderFooter
-        self.heightForFooterAtSection = heightForHeaderAtSection ?? defaultHeightForHeaderFooter
+        self.viewForHeaderAtSection = defaultViewForHeaderFooter
+        self.heightForHeaderAtSection = defaultHeightForHeaderFooter
+        self.viewForFooterAtSection = defaultViewForHeaderFooter
+        self.heightForFooterAtSection = defaultHeightForHeaderFooter
         self.heightForRow = heightForRow ?? defaultHeightForRow
     }
     
