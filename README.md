@@ -1,3 +1,15 @@
+<p align="center">
+<img src="https://github.com/aleksandrshoshiashvili/SwiftyListKit/blob/master/Resources/logo.png?raw=true" width="600px"></img>
+</p>
+
+<p align="center">
+    <img src="https://img.shields.io/badge/platform-iOS10%2B-blue.svg?style=flat" alt="Platform: iOS 10+" />
+    <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/language-swift5-f48041.svg?style=flat" alt="Language: Swift 5" /></a>
+    <a href="https://cocoapods.org/pods/SwiftyListKit"><img src="https://cocoapod-badges.herokuapp.com/v/SwiftyListKit/badge.png" alt="Cocoapods compatible" /></a>
+    <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat" alt="License: MIT" />
+</p>
+ 
+
 # SwiftyListKit
 
 - [Features](#features)
