@@ -42,6 +42,7 @@
 		825B0DBE0BC952CDE75221879D6A818E /* ListItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC89CF926505D1CC7C51C0DC482035C /* ListItemStyle.swift */; };
 		86B03FAE5FB5C1D2BD853EB27E732202 /* CreateTableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CAC8DEAC88624E7B6264AD0E61EED /* CreateTableProtocol.swift */; };
 		8930F7F17AF8EDBF7A2D8F25FFC1FF30 /* UpdateListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E633FCD4E30B778A015C1B761C003BA /* UpdateListProtocol.swift */; };
+		895E201424ACAD6900376D1A /* AnimatedCollectionListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895E201224ACAD6500376D1A /* AnimatedCollectionListProtocol.swift */; };
 		8A235CFBCDFA03748C37101C4259D30A /* CollectionViewRegistrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4857DDD7D91B897185C6098D48689F /* CollectionViewRegistrator.swift */; };
 		8C19B03CD8FFA8E248C6C5D2B1F2C2E7 /* SyncDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91266206EA584D277F92DCC77FF5D73B /* SyncDelegate.swift */; };
 		944D65E7D398263AF8ABE742F862CA4B /* Pods-ListKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A518BC3CF9B176F476C1F309768977D7 /* Pods-ListKit_Example-dummy.m */; };
@@ -121,7 +122,7 @@
 		15F8C990CE03539E07E1F73FB8F2DD3B /* Pods-ListKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ListKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		16B84423B728B194C9D2ED3D5150A7C5 /* CollectionListSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionListSection.swift; sourceTree = "<group>"; };
 		1AC46F09022F6070BFF8BCB8463C1B71 /* SwiftyListKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyListKit.debug.xcconfig; sourceTree = "<group>"; };
-		298E9E7D5D1778818F22F663CEB304D2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		298E9E7D5D1778818F22F663CEB304D2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2B6FD2C8B82FF1607F462BE8EE38EDAA /* Pods-ListKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ListKit_Example-umbrella.h"; sourceTree = "<group>"; };
 		2BC0AAEEE0D2CC6042754EF3E1EAC126 /* ListUpdater.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListUpdater.swift; sourceTree = "<group>"; };
 		30ECC1072900323213005103F12F8EB2 /* Pods-ListKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ListKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -133,7 +134,7 @@
 		3ED1D0DF2D95B67A62E8A58ABF7C9064 /* BaseAnimatedCollectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseAnimatedCollectionViewController.swift; sourceTree = "<group>"; };
 		3FF7607AAA151CF99463A009E9F1F057 /* ArraySection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArraySection.swift; path = Sources/ArraySection.swift; sourceTree = "<group>"; };
 		41E170000D02C597C19282C337AB0CAA /* TableViewDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
-		4815FF165984B16290C5E7471EF5E154 /* SwiftyListKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SwiftyListKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4815FF165984B16290C5E7471EF5E154 /* SwiftyListKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SwiftyListKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4A1FC2494CCA8FEB79BCD4574BDC87CB /* Optional+CustomStringConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Optional+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		4A7254CC9C1490BF2056F7120EC54743 /* Algorithm.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Algorithm.swift; path = Sources/Algorithm.swift; sourceTree = "<group>"; };
 		4EB73546E9D94ABD87962294D3A8ECC2 /* UITableView+VisibleElements.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITableView+VisibleElements.swift"; sourceTree = "<group>"; };
@@ -141,7 +142,7 @@
 		4FC89CF926505D1CC7C51C0DC482035C /* ListItemStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListItemStyle.swift; sourceTree = "<group>"; };
 		4FDAFA6DD5855A0D526FD2E2AFA1B8A1 /* CollectionViewDataSourceAnimated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSourceAnimated.swift; sourceTree = "<group>"; };
 		510E861793AE7B768679961884804654 /* TableViewDataSourceAnimated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceAnimated.swift; sourceTree = "<group>"; };
-		55A625E37E858BFB7DDBAA9EE8C74E59 /* Pods_ListKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ListKit_Example.framework; path = "Pods-ListKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55A625E37E858BFB7DDBAA9EE8C74E59 /* Pods_ListKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5665914A7F15F29A22976FB70D7FD049 /* UIKit+CustomExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIKit+CustomExtensions.swift"; sourceTree = "<group>"; };
 		56C6A3F545B21ACE9E2F5C21742DD34C /* AnimatedTableListProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimatedTableListProtocol.swift; sourceTree = "<group>"; };
 		58E26DEA8BCCE6A2F405042034804FDA /* DifferentiableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DifferentiableSection.swift; path = Sources/DifferentiableSection.swift; sourceTree = "<group>"; };
@@ -165,14 +166,15 @@
 		7262353061687AF9BF4FB47ED87DA7B6 /* Differentiable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Differentiable.swift; path = Sources/Differentiable.swift; sourceTree = "<group>"; };
 		7354A34F67999C329ED6DB71669ED8A9 /* TableListUpdateAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableListUpdateAnimation.swift; sourceTree = "<group>"; };
 		76E9CE58B128ABA54283B2B62BE50AA8 /* SwiftyListKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyListKit-dummy.m"; sourceTree = "<group>"; };
-		797B1BBC3E03CD39B8CB79D79BCFF843 /* DifferenceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DifferenceKit.framework; path = DifferenceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		797B1BBC3E03CD39B8CB79D79BCFF843 /* DifferenceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DifferenceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83ABF7DBC47C88DDB5E30BD22F948664 /* BaseTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		895E201224ACAD6500376D1A /* AnimatedCollectionListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCollectionListProtocol.swift; sourceTree = "<group>"; };
 		8D939A47554C3FEFC4B7CD6311EC1A37 /* ViewStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
 		8EFBE2A21C47AEABDB284D1FBE2175FB /* DifferenceKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DifferenceKit-Info.plist"; sourceTree = "<group>"; };
 		91266206EA584D277F92DCC77FF5D73B /* SyncDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SyncDelegate.swift; sourceTree = "<group>"; };
 		961DE7F3A3812E6B0267747737D0AA9D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		97787ECF4C9BE7C7F004F29DF438DF78 /* CollectionItemViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionItemViewModel.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A518BC3CF9B176F476C1F309768977D7 /* Pods-ListKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ListKit_Example-dummy.m"; sourceTree = "<group>"; };
 		A53A223E906DFA223674CD760639BC2F /* Pods-ListKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ListKit_Example-Info.plist"; sourceTree = "<group>"; };
 		A6DD39A7528F1812ED6CEF99334A5593 /* DifferenceKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DifferenceKit-prefix.pch"; sourceTree = "<group>"; };
@@ -186,14 +188,14 @@
 		C7719D5E17F45ADBCE710B68BC860B3D /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
 		C936B14B4D16616962EF347B9D6BF93D /* TableListSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableListSection.swift; sourceTree = "<group>"; };
 		C93ADDF834D30A8D7AC5863A711DB66B /* Animations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
-		C9869DA083F359F177EBCA67922958DB /* SwiftyListKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyListKit.framework; path = SwiftyListKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9869DA083F359F177EBCA67922958DB /* SwiftyListKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyListKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09D2BF955BC835FB8A95E378DBB03A6 /* SwiftyListKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyListKit-Info.plist"; sourceTree = "<group>"; };
 		D0D5F4194E2969BC37C10D303B6EB50F /* CollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		D1D05D61A3A153FBEE067A2870A27732 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D53BD8BA41826525579F983A2CB53004 /* SetupCollectionProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SetupCollectionProtocol.swift; sourceTree = "<group>"; };
 		D9A7694809976122E947947353C42BEE /* TableItemHeightStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableItemHeightStyle.swift; sourceTree = "<group>"; };
 		DA3D8B9894C41686515B373E2B664A6E /* TableItemViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableItemViewModel.swift; sourceTree = "<group>"; };
-		DC3EE5AE52F8F895120532A71653160B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		DC3EE5AE52F8F895120532A71653160B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DD6FDA6D566C6238A089A13F545B7DD8 /* Pods-ListKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ListKit_Example.modulemap"; sourceTree = "<group>"; };
 		DE937276EBC10BEB2ED2CA3BC3D1C150 /* Collection+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		E334EF13B10A8D6EDBD87C5D45DBCEF4 /* SeparatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SeparatorView.swift; path = ListKit/Classes/SeparatorView.swift; sourceTree = "<group>"; };
@@ -282,7 +284,6 @@
 				69B3EDD9C03B545B33390B4D4A6FF77D /* BaseAnimatedTableViewController.swift */,
 				83ABF7DBC47C88DDB5E30BD22F948664 /* BaseTableViewController.swift */,
 			);
-			name = Controllers;
 			path = Controllers;
 			sourceTree = "<group>";
 		};
@@ -309,7 +310,6 @@
 				41E170000D02C597C19282C337AB0CAA /* TableViewDataSource.swift */,
 				510E861793AE7B768679961884804654 /* TableViewDataSourceAnimated.swift */,
 			);
-			name = DataSource;
 			path = DataSource;
 			sourceTree = "<group>";
 		};
@@ -333,7 +333,6 @@
 				75D80FE4D095C889E02787F54A912F34 /* Support Files */,
 				AB24D5B2367E4FAC6704A4EA38F2970A /* UIKitExtension */,
 			);
-			name = DifferenceKit;
 			path = DifferenceKit;
 			sourceTree = "<group>";
 		};
@@ -342,7 +341,6 @@
 			children = (
 				E701E1C6267C5C1901250F27330C48EC /* CollectionViewDelegate.swift */,
 			);
-			name = Delegate;
 			path = Delegate;
 			sourceTree = "<group>";
 		};
@@ -352,7 +350,6 @@
 				6BDCDB10CBC29CA1698E87A98632CE56 /* CollectionViewDataSource.swift */,
 				4FDAFA6DD5855A0D526FD2E2AFA1B8A1 /* CollectionViewDataSourceAnimated.swift */,
 			);
-			name = DataSource;
 			path = DataSource;
 			sourceTree = "<group>";
 		};
@@ -397,11 +394,11 @@
 		6E95397C02806E8D5512C66D3021D3A4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				895E201224ACAD6500376D1A /* AnimatedCollectionListProtocol.swift */,
 				5DCCE7665AD57BB7731E12D4A6A45817 /* CreateCollectionProtocol.swift */,
 				D53BD8BA41826525579F983A2CB53004 /* SetupCollectionProtocol.swift */,
 				B19224110348435397545400803B4874 /* UpdateCollectionProtocol.swift */,
 			);
-			name = Protocols;
 			path = Protocols;
 			sourceTree = "<group>";
 		};
@@ -488,7 +485,6 @@
 				F89448E06773F386190278AB855D1919 /* SetupTableProtocol.swift */,
 				00A4E2FB42F0DAF51E071034576BE20A /* UpdateTableProtocol.swift */,
 			);
-			name = Protocols;
 			path = Protocols;
 			sourceTree = "<group>";
 		};
@@ -552,7 +548,6 @@
 			children = (
 				91266206EA584D277F92DCC77FF5D73B /* SyncDelegate.swift */,
 			);
-			name = Delegate;
 			path = Delegate;
 			sourceTree = "<group>";
 		};
@@ -562,7 +557,6 @@
 				3ED1D0DF2D95B67A62E8A58ABF7C9064 /* BaseAnimatedCollectionViewController.swift */,
 				C7719D5E17F45ADBCE710B68BC860B3D /* BaseCollectionViewController.swift */,
 			);
-			name = Controllers;
 			path = Controllers;
 			sourceTree = "<group>";
 		};
@@ -595,7 +589,6 @@
 				2A728350823B6920C246438E1E0DCB6D /* DataSource */,
 				F0F33561336505574BA98EC737C44477 /* Delegate */,
 			);
-			name = TableView;
 			path = TableView;
 			sourceTree = "<group>";
 		};
@@ -777,6 +770,7 @@
 				56569BFE9DB108BA0E14E69669B042D9 /* CollectionView.swift in Sources */,
 				B17E3B897F5DA609194C22F931EA457D /* CollectionViewDataSource.swift in Sources */,
 				DA137A9CEECCB02B0C19674A089FC630 /* CollectionViewDataSourceAnimated.swift in Sources */,
+				895E201424ACAD6900376D1A /* AnimatedCollectionListProtocol.swift in Sources */,
 				0B55DD1C3376501F2E91D3ADC7F80464 /* CollectionViewDelegate.swift in Sources */,
 				8A235CFBCDFA03748C37101C4259D30A /* CollectionViewRegistrator.swift in Sources */,
 				A3CFCE31DE7A784E38DD798DCDFBC266 /* CreateCollectionProtocol.swift in Sources */,
@@ -1165,8 +1159,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

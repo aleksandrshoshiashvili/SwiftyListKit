@@ -13,6 +13,8 @@ final class CollectionExampleViewController: BaseAnimatedCollectionViewControlle
     
     override func viewDidLoad() {
         let layout = UICollectionViewFlowLayout()
+        layout.itemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         super.viewDidLoad(withLayout: layout)
         
         let button = UIBarButtonItem(barButtonSystemItem: .refresh,

@@ -33,7 +33,7 @@ public struct CollectionItemViewModel: StringHashable, Differentiable {
      - heightStyle: Determines how high the list item will be drawn (default = .automatic)
 
      */
-    public init(itemType: CollectionItem.Type, heightStyle: CollectionItemHeightStyle = .static(height: 10, width: 10)) {
+    public init(itemType: CollectionItem.Type, heightStyle: CollectionItemHeightStyle = .static(height: 1, width: 1)) {
         self.data = EmptyDataViewModel()
         self.reuseIdentifier = itemType.reuseId
         self.heightStyle = heightStyle
@@ -51,7 +51,7 @@ public struct CollectionItemViewModel: StringHashable, Differentiable {
      - heightStyle: Determines how high the list item will be drawn (default = .automatic)
 
      */
-    public init<T: ListItemDataModel>(itemType: CollectionItem.Type, data: T, heightStyle: CollectionItemHeightStyle = .static(height: 10, width: 10)) {
+    public init<T: ListItemDataModel>(itemType: CollectionItem.Type, data: T, heightStyle: CollectionItemHeightStyle = .static(height: 1, width: 1)) {
         self.data = data
         self.reuseIdentifier = itemType.reuseId
         self.heightStyle = heightStyle
@@ -73,7 +73,7 @@ public struct CollectionItemViewModel: StringHashable, Differentiable {
     public init<T: ListItemDataModel, U: CollectionItem>(data: T,
                                                    map: @escaping MapDataToItem<T, U>,
                                                    style: StyleType<U>? = nil,
-                                                   heightStyle: CollectionItemHeightStyle = .static(height: 10, width: 10)) {
+                                                   heightStyle: CollectionItemHeightStyle = .static(height: 1, width: 1)) {
         self.data = data
         self.reuseIdentifier = U.reuseId
         self.heightStyle = heightStyle

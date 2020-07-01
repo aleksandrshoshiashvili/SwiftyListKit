@@ -9,8 +9,8 @@
 import UIKit
 import SwiftyListKit
 
-class ControllerWithProtocolOnly: UIViewController, AnimatedTableListProtocol {
-    
+final class ControllerWithProtocolOnly: UIViewController, AnimatedTableListProtocol {
+
     var tableView: UITableView!
     var dataSource: TableViewDataSourceAnimated<TableListSection>!
     var syncDelegate: SyncDelegate<TableListSection>!
@@ -18,20 +18,20 @@ class ControllerWithProtocolOnly: UIViewController, AnimatedTableListProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+
         self.setup(withTableStyle: .plain)
         reloadViewModels()
     }
-    
+
     private func reloadViewModels() {
         self.update(with: [getSectionWithRandomViewModels()])
     }
-    
+
     // MARK: - Generate random rows/headers
-    
+
     private func getSectionWithRandomViewModels() -> TableListSection {
         var rowViewModels: [TableItemViewModel] = []
-        
+
         for _ in 0 ..< Int.random(in: 0...100) {
             let oneLineDataModel = TextDataModel(text: .randomString())
             let cellViewModel = TableItemViewModel(data: oneLineDataModel,
@@ -39,7 +39,7 @@ class ControllerWithProtocolOnly: UIViewController, AnimatedTableListProtocol {
                                                   style: .default)
             rowViewModels.append(cellViewModel)
         }
-        
+
         let section = TableListSection(rows: rowViewModels)
         return section
     }

@@ -12,6 +12,7 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
     unowned var dataSource: TableViewDataSource<S>
 
     public typealias DisplayHeaderFooterViewInSection = ((_ tableView: UITableView, _ view: UIView, _ section: Int) -> Void)
+    public typealias DisplayCellAtIndexPath = ((_ tableView: UITableView, _ indexPath: IndexPath, _ model: TableViewDataSource<S>.I?) -> Void)
     public typealias ViewForHeaderFooterInSection = (TableViewDataSource<S>, UITableView, Int, TableViewDataSource<S>.I?) -> UIView?
     public typealias HeightForHeaderFooterInSection = (UITableView, Int, TableViewDataSource<S>.I?) -> CGFloat
     public typealias HeightForRow = (UITableView, IndexPath, TableViewDataSource<S>.I) -> CGFloat
@@ -67,6 +68,8 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
     public var endDisplayingHeaderViewAtSection: DisplayHeaderFooterViewInSection?
     public var endDisplayingFooterViewAtSection: DisplayHeaderFooterViewInSection?
 
+    public var willDisplayCellAtIndexPath: DisplayCellAtIndexPath?
+    
     public var heightForRow: HeightForRow!
     public var separatorForRow: SeparatorForRow?
     
@@ -223,6 +226,11 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
     }
     
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        defer {
+            let model = try? dataSource.model(at: indexPath) as? S.ItemModel
+            willDisplayCellAtIndexPath?(tableView, indexPath, model)
+        }
+        
         let isHideLastSeparatorInSection = true
         guard let tableCell = cell as? SeparatorHandler,
             let separator = separatorForRow?(indexPath),

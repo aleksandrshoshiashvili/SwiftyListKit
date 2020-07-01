@@ -12,7 +12,7 @@ public protocol SetupCollectionProtocol: class {
   func setupCollectionView()
 }
 
-extension SetupCollectionProtocol where Self: BaseAnimatedCollectionViewController {
+extension SetupCollectionProtocol where Self: AnimatedCollectionListProtocol {
     public func setupCollectionView() {
         setDefaultDataSource()
     }
