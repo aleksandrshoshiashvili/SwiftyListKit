@@ -23,7 +23,8 @@ open class TableViewDataSource<S: ListRowsProtocol>
     public typealias CanMoveRowAtIndexPath = (TableViewDataSource<S>, IndexPath) -> Bool
     public typealias SectionIndexTitles = (TableViewDataSource<S>) -> [String]?
     public typealias SectionForSectionIndexTitle = (TableViewDataSource<S>, _ title: String, _ index: Int) -> Int
-    
+    public typealias DisplayCellAtIndexPath = ((_ tableView: UITableView, _ indexPath: IndexPath, _ cell: UITableViewCell, _ model: I) -> Void)
+
     public init(
         configureCell: @escaping ConfigureCell,
         titleForHeaderInSection: @escaping  TitleForHeaderInSection = { _, _ in nil },
@@ -115,6 +116,8 @@ open class TableViewDataSource<S: ListRowsProtocol>
             
         }
     }
+
+    open var onCellConfigure: DisplayCellAtIndexPath?
     
     // UITableViewDataSource
     
@@ -129,7 +132,10 @@ open class TableViewDataSource<S: ListRowsProtocol>
     
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         precondition(indexPath.item < sectionModels[indexPath.section].rows.count)
-        return configureCell(self, tableView, indexPath, self[indexPath])
+        let cell = configureCell(self, tableView, indexPath, self[indexPath])
+        onCellConfigure?(tableView, indexPath, cell, self[indexPath])
+        return cell
+
     }
     
     open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
