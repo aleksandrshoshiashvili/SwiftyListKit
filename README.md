@@ -244,6 +244,43 @@ This example shows how to implement ViewController with TableView with 2 section
 
 Note: you do not need to register cells/header/footers/reusable views, because if you are using `AnimatedTableListProtocol`, then `tableView` contains `TableViewRegistrator`, that automatically registers all list elements. You just need to make sure that reuseIdentifier of your list item match the list item's name (only for `UITableViewCell` and for `UICollectionViewCell`, for headers/footers/reusable views it doesn't matter).
 
+### SyncDelegate
+
+If you need to use TableView delegate methods, then you can use SyncDelegate to do so. SyncDelegate is part of `AnimatedTableListProtocol` (and part of `BaseAnimatedTableViewController` сorrespondingly).
+
+The delegate methods in SyncDelegate are based on closures. 
+
+Example:
+
+```swift
+class SyncDelegateExampleViewController: UIViewController, AnimatedTableListProtocol {
+    
+    var tableView: UITableView!
+    var dataSource: TableViewDataSourceAnimated<TableListSection>!
+    var syncDelegate: SyncDelegate<TableListSection>!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup(withTableStyle: .plain)
+        
+        syncDelegate.didSelectRow = { [weak self] _, _, model in
+            guard let tag = model?.data.tag as? String {
+                    return
+            }
+            self?.showAlert(with: tag)
+        }
+        
+        syncDelegate.onEditActions = { [weak self] _, _, _ in
+            guard let self = self else { return nil }
+            return [.init(style: .destructive, title: "Delete", handler: self.handleItemDelete)]
+        }
+    }
+    
+}
+```
+
+Also SyncDelegate contains all ScrollView delegate methods (e.g. onScrollViewDidScroll, onScrollViewWillBeginDragging, onScrollViewDidZoom and so on).
+
 ## Credits
 
 SwiftyListKit was written by 
