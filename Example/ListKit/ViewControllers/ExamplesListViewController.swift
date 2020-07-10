@@ -28,12 +28,16 @@ class ExamplesListViewController: BaseAnimatedTableViewController {
     }
     
     func getExamplesOptionsSections() -> [TableListSection] {
-        let options = [("Plain with animations", "PlainExampleViewController"),
+        var options = [("Plain with animations", "PlainExampleViewController"),
                        ("Grouped with animations", "GroupedExampleViewController"),
                        ("Collection view", "CollectionExampleViewController"),
                        ("Table View as part of view", "TableViewAsPartViewController"),
                        ("View controller without base class", "ControllerWithProtocolOnly"),
                        ("Profile view controller", "ProfileViewController")]
+
+        if #available(iOS 14.0, *) {
+            options.append(("List Content Controller (new in iOS 14)", "ListContentItemsViewController"))
+        }
         
         var sections: [TableListSection] = []
         

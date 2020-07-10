@@ -36,6 +36,11 @@
 		56569BFE9DB108BA0E14E69669B042D9 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5F4194E2969BC37C10D303B6EB50F /* CollectionView.swift */; };
 		5C70D214C72BDE0886C84A750FB50329 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334EF13B10A8D6EDBD87C5D45DBCEF4 /* SeparatorView.swift */; };
 		5FFF76FBBA6808B68B71330DF005791B /* AnyDifferentiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4C4CDEC9CF2F32062E8A85A6468E3 /* AnyDifferentiable.swift */; };
+		69B1B9D724B8506400DD7454 /* ListContentTableViewCell+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1B9D524B8502600DD7454 /* ListContentTableViewCell+Styles.swift */; };
+		69B1B9DA24B8529900DD7454 /* ListContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1B9D824B8527A00DD7454 /* ListContentTableViewCell.swift */; };
+		69B1B9DC24B8555600DD7454 /* ListContentDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1B9DB24B8555600DD7454 /* ListContentDataModel.swift */; };
+		69B1B9DE24B8556E00DD7454 /* ListContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1B9DD24B8556E00DD7454 /* ListContentType.swift */; };
+		69B1B9E224B85C5B00DD7454 /* ListContentMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1B9E124B85C5B00DD7454 /* ListContentMapper.swift */; };
 		72A877898424377B5E434EDCCEBA0AC0 /* TableListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C936B14B4D16616962EF347B9D6BF93D /* TableListSection.swift */; };
 		72DE0FD739782CFE674F445DEA10AE7B /* ContentIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655BC5D0628A90F345AF34A8CA71E586 /* ContentIdentifiable.swift */; };
 		7BB820BB33F9C6D8DA0003B9F465D8B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961DE7F3A3812E6B0267747737D0AA9D /* Foundation.framework */; };
@@ -161,6 +166,11 @@
 		640B577FE11765BD3B7F6467665634C6 /* Pods-ListKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ListKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		64C4C4CDEC9CF2F32062E8A85A6468E3 /* AnyDifferentiable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyDifferentiable.swift; path = Sources/AnyDifferentiable.swift; sourceTree = "<group>"; };
 		655BC5D0628A90F345AF34A8CA71E586 /* ContentIdentifiable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContentIdentifiable.swift; path = Sources/ContentIdentifiable.swift; sourceTree = "<group>"; };
+		69B1B9D524B8502600DD7454 /* ListContentTableViewCell+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListContentTableViewCell+Styles.swift"; sourceTree = "<group>"; };
+		69B1B9D824B8527A00DD7454 /* ListContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContentTableViewCell.swift; sourceTree = "<group>"; };
+		69B1B9DB24B8555600DD7454 /* ListContentDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContentDataModel.swift; sourceTree = "<group>"; };
+		69B1B9DD24B8556E00DD7454 /* ListContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContentType.swift; sourceTree = "<group>"; };
+		69B1B9E124B85C5B00DD7454 /* ListContentMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContentMapper.swift; sourceTree = "<group>"; };
 		69B3EDD9C03B545B33390B4D4A6FF77D /* BaseAnimatedTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseAnimatedTableViewController.swift; sourceTree = "<group>"; };
 		6BDCDB10CBC29CA1698E87A98632CE56 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		7262353061687AF9BF4FB47ED87DA7B6 /* Differentiable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Differentiable.swift; path = Sources/Differentiable.swift; sourceTree = "<group>"; };
@@ -262,6 +272,7 @@
 		082C22FB1F51ECF23FC64CDE86B32686 /* SwiftyListKit */ = {
 			isa = PBXGroup;
 			children = (
+				69B1B9D424B8500F00DD7454 /* ListContentView */,
 				E334EF13B10A8D6EDBD87C5D45DBCEF4 /* SeparatorView.swift */,
 				0E633FCD4E30B778A015C1B761C003BA /* UpdateListProtocol.swift */,
 				7A823D2215E810B61C98035E3CB43BB6 /* Animations */,
@@ -374,6 +385,18 @@
 			);
 			name = Stylization;
 			path = ListKit/Classes/Stylization;
+			sourceTree = "<group>";
+		};
+		69B1B9D424B8500F00DD7454 /* ListContentView */ = {
+			isa = PBXGroup;
+			children = (
+				69B1B9D524B8502600DD7454 /* ListContentTableViewCell+Styles.swift */,
+				69B1B9D824B8527A00DD7454 /* ListContentTableViewCell.swift */,
+				69B1B9DB24B8555600DD7454 /* ListContentDataModel.swift */,
+				69B1B9DD24B8556E00DD7454 /* ListContentType.swift */,
+				69B1B9E124B85C5B00DD7454 /* ListContentMapper.swift */,
+			);
+			path = ListContentView;
 			sourceTree = "<group>";
 		};
 		6A3AAB05D8F908754932E760FEE18A3C /* Support Files */ = {
@@ -767,9 +790,11 @@
 				C607FFD42C13A2DF7486E6B628FEE97E /* CollectionItemHeightStyle.swift in Sources */,
 				9596EB13B799C356D45C321AA2892C21 /* CollectionItemViewModel.swift in Sources */,
 				21F2CC2FD2576461AF52237E6D5AD0FA /* CollectionListSection.swift in Sources */,
+				69B1B9DA24B8529900DD7454 /* ListContentTableViewCell.swift in Sources */,
 				56569BFE9DB108BA0E14E69669B042D9 /* CollectionView.swift in Sources */,
 				B17E3B897F5DA609194C22F931EA457D /* CollectionViewDataSource.swift in Sources */,
 				DA137A9CEECCB02B0C19674A089FC630 /* CollectionViewDataSourceAnimated.swift in Sources */,
+				69B1B9D724B8506400DD7454 /* ListContentTableViewCell+Styles.swift in Sources */,
 				895E201424ACAD6900376D1A /* AnimatedCollectionListProtocol.swift in Sources */,
 				0B55DD1C3376501F2E91D3ADC7F80464 /* CollectionViewDelegate.swift in Sources */,
 				8A235CFBCDFA03748C37101C4259D30A /* CollectionViewRegistrator.swift in Sources */,
@@ -797,10 +822,13 @@
 				2D7E757D7940F2B7DD82B617331AA4DA /* TableItemHeightStyle.swift in Sources */,
 				A242513C87710345BFE53FD4C358FCCD /* TableItemViewModel.swift in Sources */,
 				72A877898424377B5E434EDCCEBA0AC0 /* TableListSection.swift in Sources */,
+				69B1B9DE24B8556E00DD7454 /* ListContentType.swift in Sources */,
 				136AAF18BDF3C7F18DD4E0A84A35A666 /* TableListUpdateAnimation.swift in Sources */,
 				9B1B075E59C10C3A2001DA1ECE898339 /* TableView.swift in Sources */,
 				EA5F54C93FB4B899E29AF38DC40B5BDB /* TableViewCell.swift in Sources */,
 				BF6480BAB4D011CFA8E1EA1190296AEA /* TableViewDataSource.swift in Sources */,
+				69B1B9E224B85C5B00DD7454 /* ListContentMapper.swift in Sources */,
+				69B1B9DC24B8555600DD7454 /* ListContentDataModel.swift in Sources */,
 				3F9E943FC1ED9E228FBAB02B9394D879 /* TableViewDataSourceAnimated.swift in Sources */,
 				154BAB076BECFFD2F392870B950CF24A /* TableViewRegistrator.swift in Sources */,
 				E1FB02A2757308DDE47BAFA99EB4D6B1 /* UIKit+CustomExtensions.swift in Sources */,

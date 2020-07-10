@@ -53,14 +53,17 @@ public class TableViewRegistrator {
         guard let _ = bundle?.path(forResource: reuseIdentifier, ofType: "nib") else {
             // if in code
             if let namespace = normalizedNamespace(),
-                let listItemClass: AnyClass = NSClassFromString("\(namespace).\(reuseIdentifier)") {
-                switch type {
-                case .cell:
-                    tableView?.register(listItemClass, forCellReuseIdentifier: reuseIdentifier)
-                case .headerFooter:
-                    tableView?.register(listItemClass, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
-                }
-                registeredIds.insert(reuseIdentifier)
+               let listItemClass = itemClass(for: namespace, with: reuseIdentifier) {
+                registerCell(for: namespace,
+                             with: reuseIdentifier,
+                             itemType: type,
+                             listItemClass: listItemClass)
+            } else if let namespace = localNamespace(),
+                      let listItemClass = itemClass(for: namespace, with: reuseIdentifier){
+                registerCell(for: namespace,
+                             with: reuseIdentifier,
+                             itemType: type,
+                             listItemClass: listItemClass)
             }
             return
         }
@@ -79,10 +82,41 @@ public class TableViewRegistrator {
     // MARK: - Helper
     
     private func normalizedNamespace() -> String? {
-        guard let namespace = Bundle.main.infoDictionary?["CFBundleExecutable"] as? String else {
+        guard let namespace = namespace(for: .main) else {
             return nil
         }
         return namespace.replacingOccurrences(of: " ", with: "_")
     }
-    
+
+    private func localNamespace() -> String? {
+        return namespace(for: Bundle(for: TableViewRegistrator.self))
+    }
+
+    private func namespace(for bundle: Bundle) -> String? {
+        guard let namespace = bundle.infoDictionary?["CFBundleExecutable"] as? String else {
+            return nil
+        }
+        return namespace
+    }
+
+    private func itemClass(for namespace: String,
+                           with reuseIdentifier: String) -> AnyClass? {
+        guard let listItemClass: AnyClass = NSClassFromString("\(namespace).\(reuseIdentifier)") else {
+            return nil
+        }
+        return listItemClass
+    }
+
+    private func registerCell(for namespace: String,
+                              with reuseIdentifier: String,
+                              itemType: TableObjectType,
+                              listItemClass: AnyClass) {
+        switch itemType {
+        case .cell:
+            tableView?.register(listItemClass, forCellReuseIdentifier: reuseIdentifier)
+        case .headerFooter:
+            tableView?.register(listItemClass, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
+        }
+        registeredIds.insert(reuseIdentifier)
+    }
 }
