@@ -10,19 +10,19 @@ import UIKit
 
 open class SeparatorView: UIView {
 
-    var separatorColor: UIColor? = UIColor.lightGray
-    var separatorHeight: CGFloat = 1.0
-    var separatorInsets: UIEdgeInsets = .zero
+    open var separatorColor: UIColor? = .lightGray
+    open var separatorHeight: CGFloat = 1.0
+    open var separatorInsets: UIEdgeInsets = .zero
 
     class var `default`: SeparatorView {
-        let separatorColor: UIColor? = UIColor.lightGray
+        let separatorColor: UIColor? = .lightGray
         let view = SeparatorView(frame: .zero)
         view.backgroundColor = separatorColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }
 
-    class func custom(color: UIColor = UIColor.lightGray,
+    class func custom(color: UIColor = .lightGray,
                       height: CGFloat = 1.0,
                       insets: UIEdgeInsets = UIEdgeInsets(top: .zero, left: 16.0, bottom: .zero, right: .zero)) -> SeparatorView {
         let view = SeparatorView(frame: .zero)

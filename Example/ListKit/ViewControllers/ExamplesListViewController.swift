@@ -36,7 +36,8 @@ class ExamplesListViewController: BaseAnimatedTableViewController {
                        ("Profile view controller", "ProfileViewController")]
 
         if #available(iOS 14.0, *) {
-            options.append(("List Content Controller (new in iOS 14)", "ListContentItemsViewController"))
+            options.append(("List Content Table Controller (new in iOS 14)", "ListContentItemsTableViewController"))
+            options.append(("List Content Collection Controller (new in iOS 14)", "ListContentItemsCollectionViewController"))
         }
         
         var sections: [TableListSection] = []

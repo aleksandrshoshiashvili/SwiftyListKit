@@ -10,7 +10,7 @@ import UIKit
 import SwiftyListKit
 
 @available(iOS 14.0, *)
-final class ListContentItemsViewController: BaseAnimatedTableViewController {
+final class ListContentItemsTableViewController: BaseAnimatedTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad(withTableStyle: .grouped)
@@ -75,7 +75,7 @@ final class ListContentItemsViewController: BaseAnimatedTableViewController {
 }
 
 @available(iOS 14.0, *)
-private extension ListContentType {
+extension ListContentType {
 
     static var random: ListContentType {
         let randInt = Int.random(in: 0...9)
