@@ -54,6 +54,36 @@ public struct TableItemViewModel: StringHashable, Differentiable {
         self.style = itemType.defaultStyle
         self.differenceIdentifier = data.hashString
     }
+
+    /**
+     Initializes a new ListItemViewModel object from ListItem type and style. The initializers should be used if you want to display a static element with default styling without data.
+
+     - Parameters:
+       - itemType: The type of ListItem element to be displayed
+       - heightStyle: Determines how high the list item will be drawn (default = .automatic)
+
+     */
+    public init<U: TableItem>(itemType: U.Type, style: StyleType<U>? = nil, heightStyle: TableItemHeightStyle = .automatic) {
+        self.data = EmptyDataViewModel()
+        self.reuseIdentifier = itemType.reuseId
+        self.heightStyle = heightStyle
+        self.map = itemType.defaultDataMap
+        if let mapping = style {
+            switch mapping {
+            case .custom(let style):
+                let stylingBlock = style.styling
+                self.style = { item in
+                    guard let item = item as? U else { return }
+                    stylingBlock(item)
+                }
+            case .default:
+                self.style = U.defaultStyle
+            }
+        } else {
+            self.style = U.defaultStyle
+        }
+        self.differenceIdentifier = data.hashString
+    }
     
     /**
      Initializes a new ListItemViewModel object from ListItem type and with data. The initializers should be used if you want to display a static element with default styling with data and with default data mapping.

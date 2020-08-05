@@ -12,7 +12,7 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
     unowned var dataSource: TableViewDataSource<S>
 
     public typealias DisplayHeaderFooterViewInSection = ((_ tableView: UITableView, _ view: UIView, _ section: Int) -> Void)
-    public typealias DisplayCellAtIndexPath = ((_ tableView: UITableView, _ indexPath: IndexPath, _ model: TableViewDataSource<S>.I?) -> Void)
+    public typealias DisplayCellAtIndexPath = ((_ tableView: UITableView, _ indexPath: IndexPath, _ cell: UITableViewCell, _ model: TableViewDataSource<S>.I?) -> Void)
     public typealias ViewForHeaderFooterInSection = (TableViewDataSource<S>, UITableView, Int, TableViewDataSource<S>.I?) -> UIView?
     public typealias HeightForHeaderFooterInSection = (UITableView, Int, TableViewDataSource<S>.I?) -> CGFloat
     public typealias HeightForRow = (UITableView, IndexPath, TableViewDataSource<S>.I) -> CGFloat
@@ -221,26 +221,27 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
     }
     
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        defer {
-            let model = try? dataSource.model(at: indexPath) as? S.ItemModel
-            willDisplayCellAtIndexPath?(tableView, indexPath, model)
-        }
-        
-        let isHideLastSeparatorInSection = true
-        guard let tableCell = cell as? SeparatorHandler,
-            let separator = separatorForRow?(indexPath),
-            tableView.separatorStyle == .none else {
+        configureSeparatorIfPossible(for: cell, in: tableView, at: indexPath)
+
+        guard let model = try? dataSource.model(at: indexPath) as? S.ItemModel else {
+            willDisplayCellAtIndexPath?(tableView, indexPath, cell, nil)
             return
         }
-        if isHideLastSeparatorInSection, indexPath.row == dataSource.sectionModels[indexPath.section].rows.count - 1 {
-        } else {
-            tableCell.configureSeparator(with: separator)
+        willDisplayCellAtIndexPath?(tableView, indexPath, cell, model)
+
+        guard let item = cell as? ListItem else {
+            return
+        }
+
+        if let mapStyle = model.style {
+            mapStyle(item)
+        } else if let mapDefaultStyle = type(of: item).defaultStyle {
+            mapDefaultStyle(item)
         }
     }
     
     @available(iOS 11.0, *)
     public func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
         do {
             let model = try dataSource.model(at: indexPath) as? S.ItemModel
             return onLeadingSwipeAction?(tableView, indexPath, model)
@@ -335,6 +336,21 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
 
     public func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView) {
         onScrollViewDidChangeAdjustedContentInset?(scrollView)
+    }
+
+    // MARK: - Helpers
+
+    private func configureSeparatorIfPossible(for cell: UITableViewCell, in tableView: UITableView, at indexPath: IndexPath) {
+        let isHideLastSeparatorInSection = true
+        guard let tableCell = cell as? SeparatorHandler,
+            let separator = separatorForRow?(indexPath),
+            tableView.separatorStyle == .none else {
+            return
+        }
+        if isHideLastSeparatorInSection, indexPath.row == dataSource.sectionModels[indexPath.section].rows.count - 1 {
+        } else {
+            tableCell.configureSeparator(with: separator)
+        }
     }
     
 }

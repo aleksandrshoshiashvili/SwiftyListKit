@@ -38,10 +38,14 @@ public extension AnimatedCollectionListProtocol {
     }
     
     func update(with sections: [CollectionListSection]) {
+        update(with: sections, updateAnimation: .default)
+    }
+
+    func update(with sections: [CollectionListSection], updateAnimation: CollectionListUpdateAnimation) {
         ListUpdater.updateCollectionViewView(collectionView,
                                              with: dataSource,
                                              newSections: sections,
-                                             updateAnimation: .default)
+                                             updateAnimation: updateAnimation)
     }
     
     func showLoader() {

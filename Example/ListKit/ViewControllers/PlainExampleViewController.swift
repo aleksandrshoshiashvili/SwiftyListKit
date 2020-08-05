@@ -109,7 +109,6 @@ final class PlainExampleViewController: BaseAnimatedTableViewController {
             let cellViewModel2 = TableItemViewModel(data: oneLineDataModel2,
                                                    map: OneTitleTableViewCell.map1,
                                                    style: .custom(style: customStyle))
-            
             rowViewModels.append(cellViewModel)
             rowViewModels.append(cellViewModel1)
             rowViewModels.append(cellViewModel2)

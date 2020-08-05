@@ -32,19 +32,13 @@ open class TableViewDataSourceAnimated<S: TableListSection>: TableViewDataSource
         } else if let defaultDataMap = type(of: listItem).defaultDataMap {
             defaultDataMap(viewModel.data, listItem)
         }
-        
-        if let mapStyle = viewModel.style {
-            mapStyle(listItem)
-        } else if let mapDefaultStyle = type(of: listItem).defaultStyle {
-            mapDefaultStyle(listItem)
-        }
 
         if let delegatableItem = listItem as? ListItemDelegatable, let delegate = dataSource.delegate {
             delegatableItem.set(delegate: delegate)
         }
-        
+
         let cell = listItem as! UITableViewCell
-        
+
         if let selectionStyle = tableView.selectionStyle {
             cell.selectionStyle = selectionStyle
         }
