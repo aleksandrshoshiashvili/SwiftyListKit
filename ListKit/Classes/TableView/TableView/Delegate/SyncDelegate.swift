@@ -27,7 +27,10 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
     public typealias ShouldScrollToTop = ((_ scrollView: UIScrollView) -> Bool)
     public typealias EditingStyle = (UITableView, IndexPath, TableViewDataSource<S>.I?) -> UITableViewCell.EditingStyle
     public typealias EditActions = (UITableView, IndexPath, TableViewDataSource<S>.I?) -> [UITableViewRowAction]?
-    
+    public typealias ShouldShowMenu = ((UITableView, IndexPath, S.ItemModel?) -> Bool)
+    public typealias CanPerformAction = ((UITableView, IndexPath, Any?, S.ItemModel?) -> Bool)
+    public typealias PerformAction = ((UITableView, IndexPath, Any?, S.ItemModel?) -> Void)
+
     @available(iOS 11.0, *)
     public typealias SwipeAction = (UITableView, IndexPath, TableViewDataSource<S>.I?) -> UISwipeActionsConfiguration?
     
@@ -52,7 +55,11 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
             _onTrailingSwipeAction = newValue
         }
     }
-    
+
+    public var onShouldShowMenuForRowAt: ShouldShowMenu?
+    public var onCanPerformAction: CanPerformAction?
+    public var onPerformAction: PerformAction?
+
     public var onEditingStyle: EditingStyle?
     public var onEditActions: EditActions?
     
@@ -275,6 +282,33 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
             return onEditingStyle?(tableView, indexPath, model) ?? .none
         } catch {
             return onEditingStyle?(tableView, indexPath, nil) ?? .none
+        }
+    }
+
+    public func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
+        do {
+            let model = try dataSource.model(at: indexPath) as? S.ItemModel
+            return onShouldShowMenuForRowAt?(tableView, indexPath, model) ?? false
+        } catch {
+            return onShouldShowMenuForRowAt?(tableView, indexPath, nil) ?? false
+        }
+    }
+
+    public func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+        do {
+            let model = try dataSource.model(at: indexPath) as? S.ItemModel
+            return onCanPerformAction?(tableView, indexPath, sender, model) ?? false
+        } catch {
+            return onCanPerformAction?(tableView, indexPath, sender, nil) ?? false
+        }
+    }
+
+    public func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
+        do {
+            let model = try dataSource.model(at: indexPath) as? S.ItemModel
+            onPerformAction?(tableView, indexPath, sender, model)
+        } catch {
+            onPerformAction?(tableView, indexPath, sender, nil)
         }
     }
 
