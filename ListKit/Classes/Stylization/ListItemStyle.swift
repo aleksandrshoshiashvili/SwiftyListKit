@@ -40,4 +40,8 @@ public struct ListItemStyle<T: ListItem> {
             right.styling(listItem)
         }
     }
+    
+    static public func += (left: inout ListItemStyle<T>, right: ListItemStyle<T>) {
+        return left = left + right
+    }
 }
