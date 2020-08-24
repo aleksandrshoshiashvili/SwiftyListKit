@@ -10,6 +10,8 @@ import UIKit
 
 public class TableViewRegistrator {
     
+    public static var externalBundle: Bundle?
+    
     public enum TableObjectType {
         case cell
         case headerFooter
@@ -79,7 +81,15 @@ public class TableViewRegistrator {
     // MARK: - Helper
     
     private func normalizedNamespace() -> String? {
-        guard let namespace = Bundle.main.infoDictionary?["CFBundleExecutable"] as? String else {
+        let bundle: Bundle
+        
+        if let externalBundle = TableViewRegistrator.externalBundle {
+            bundle = externalBundle
+        } else {
+            bundle = .main
+        }
+        
+        guard let namespace = bundle.infoDictionary?["CFBundleExecutable"] as? String else {
             return nil
         }
         return namespace.replacingOccurrences(of: " ", with: "_")

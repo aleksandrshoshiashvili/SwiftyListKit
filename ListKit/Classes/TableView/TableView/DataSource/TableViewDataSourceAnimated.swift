@@ -36,6 +36,10 @@ open class TableViewDataSourceAnimated<S: TableListSection>: TableViewDataSource
         if let delegatableItem = listItem as? ListItemDelegatable, let delegate = dataSource.delegate {
             delegatableItem.set(delegate: delegate)
         }
+        
+        if let mapStyle = viewModel.postLayoutStyle {
+            mapStyle(listItem)
+        }
 
         let cell = listItem as! UITableViewCell
 

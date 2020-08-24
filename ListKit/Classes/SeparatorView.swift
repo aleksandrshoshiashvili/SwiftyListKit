@@ -9,11 +9,14 @@
 import UIKit
 
 open class SeparatorView: UIView {
-
-    var separatorColor: UIColor? = UIColor.lightGray
-    var separatorHeight: CGFloat = 1.0
-    var separatorInsets: UIEdgeInsets = .zero
-
+    public static var separatorColor: UIColor? = UIColor.lightGray
+    public static var separatorHeight: CGFloat = 1.0
+    public static var separatorInsets: UIEdgeInsets = .zero
+    
+    open var separatorColor: UIColor? = SeparatorView.separatorColor
+    open var separatorHeight: CGFloat = SeparatorView.separatorHeight
+    open var separatorInsets: UIEdgeInsets = SeparatorView.separatorInsets
+    
     class var `default`: SeparatorView {
         let separatorColor: UIColor? = UIColor.lightGray
         let view = SeparatorView(frame: .zero)
@@ -21,10 +24,10 @@ open class SeparatorView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }
-
-    class func custom(color: UIColor = UIColor.lightGray,
-                      height: CGFloat = 1.0,
-                      insets: UIEdgeInsets = UIEdgeInsets(top: .zero, left: 16.0, bottom: .zero, right: .zero)) -> SeparatorView {
+    
+    open class func custom(color: UIColor = UIColor.lightGray,
+                           height: CGFloat = 1.0,
+                           insets: UIEdgeInsets = UIEdgeInsets(top: .zero, left: 16.0, bottom: .zero, right: .zero)) -> SeparatorView {
         let view = SeparatorView(frame: .zero)
         view.backgroundColor = color
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +36,7 @@ open class SeparatorView: UIView {
         view.separatorInsets = insets
         return view
     }
-
+    
 }
 
 public enum CustomSeparatorConfiguration {
@@ -42,19 +45,19 @@ public enum CustomSeparatorConfiguration {
 }
 
 public extension CustomSeparatorConfiguration {
-
+    
     static let `default`: CustomSeparatorConfiguration =
         .singleLine(position: .bottom(inset: UIEdgeInsets(top: .zero, left: 16.0, bottom: .zero, right: .zero)))
-
+    
     static let singleFullWidthLineBottom: CustomSeparatorConfiguration =
         .singleLine(position: .bottom(inset: .zero))
-
+    
     static let singleFullWidthLineTop: CustomSeparatorConfiguration =
         .singleLine(position: .top(inset: .zero))
-
+    
     static let singleFullWidthLineTopAndBottom: CustomSeparatorConfiguration =
         .singleLine(position: .both(topInset: .zero, bottomInset: .zero))
-
+    
 }
 
 public enum SeparatorPosition {

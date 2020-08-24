@@ -9,6 +9,8 @@ import UIKit
 
 public class CollectionViewRegistrator {
     
+    public static var externalBundle: Bundle?
+    
     public enum CollectionObjectType {
         case cell
         case supplementaryView
@@ -52,7 +54,15 @@ public class CollectionViewRegistrator {
     // MARK: - Helper
     
     private func normalizedNamespace() -> String? {
-        guard let namespace = Bundle.main.infoDictionary?["CFBundleExecutable"] as? String else {
+        let bundle: Bundle
+
+        if let externalBundle = CollectionViewRegistrator.externalBundle {
+            bundle = externalBundle
+        } else {
+            bundle = .main
+        }
+
+        guard let namespace = bundle.infoDictionary?["CFBundleExecutable"] as? String else {
             return nil
         }
         return namespace.replacingOccurrences(of: " ", with: "_")

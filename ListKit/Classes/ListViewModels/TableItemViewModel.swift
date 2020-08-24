@@ -35,6 +35,7 @@ public struct TableItemViewModel: StringHashable, Differentiable {
     public let heightStyle: TableItemHeightStyle
     public let map: MapDataToItemClosure?
     public let style: MapStyleToItemClosure?
+    public let postLayoutStyle: MapStyleToItemClosure?
     
     public var hashString: String { return data.hashString }
     
@@ -42,8 +43,8 @@ public struct TableItemViewModel: StringHashable, Differentiable {
      Initializes a new ListItemViewModel object from ListItem type. The initializers should be used if you want to display a static element with default styling without data.
      
      - Parameters:
-       - itemType: The type of ListItem element to be displayed
-       - heightStyle: Determines how high the list item will be drawn (default = .automatic)
+        - itemType: The type of ListItem element to be displayed
+        - heightStyle: Determines how high the list item will be drawn (default = .automatic)
      
      */
     public init(itemType: TableItem.Type, heightStyle: TableItemHeightStyle = .automatic) {
@@ -53,17 +54,23 @@ public struct TableItemViewModel: StringHashable, Differentiable {
         self.map = itemType.defaultDataMap
         self.style = itemType.defaultStyle
         self.differenceIdentifier = data.hashString
+        self.postLayoutStyle = nil
     }
-
+    
     /**
      Initializes a new ListItemViewModel object from ListItem type and style. The initializers should be used if you want to display a static element with default styling without data.
-
+     
      - Parameters:
-       - itemType: The type of ListItem element to be displayed
-       - heightStyle: Determines how high the list item will be drawn (default = .automatic)
-
+        - itemType: The type of ListItem element to be displayed
+        - style: Closure that determine how to stylize list item
+        - postLayoutStyle: Closure that determine how to stylize list with applying layout
+        - heightStyle: Determines how high the list item will be drawn (default = .automatic)
+     
      */
-    public init<U: TableItem>(itemType: U.Type, style: StyleType<U>? = nil, heightStyle: TableItemHeightStyle = .automatic) {
+    public init<U: TableItem>(itemType: U.Type,
+                              style: StyleType<U>? = nil,
+                              postLayoutStyle: ListItemStyle<U>? = nil,
+                              heightStyle: TableItemHeightStyle = .automatic) {
         self.data = EmptyDataViewModel()
         self.reuseIdentifier = itemType.reuseId
         self.heightStyle = heightStyle
@@ -83,15 +90,25 @@ public struct TableItemViewModel: StringHashable, Differentiable {
             self.style = U.defaultStyle
         }
         self.differenceIdentifier = data.hashString
+        
+        if let style = postLayoutStyle {
+            let stylingBlock = style.styling
+            self.postLayoutStyle = { item in
+                guard let item = item as? U else { return }
+                stylingBlock(item)
+            }
+        } else {
+            self.postLayoutStyle = nil
+        }
     }
     
     /**
      Initializes a new ListItemViewModel object from ListItem type and with data. The initializers should be used if you want to display a static element with default styling with data and with default data mapping.
      
      - Parameters:
-       - itemType: The type of ListItem element to be displayed
-       - data: Object that contains needed data for list item
-       - heightStyle: Determines how high the list item will be drawn (default = .automatic)
+        - itemType: The type of ListItem element to be displayed
+        - data: Object that contains needed data for list item
+        - heightStyle: Determines how high the list item will be drawn (default = .automatic)
      
      */
     public init<T: ListItemDataModel>(itemType: TableItem.Type,
@@ -103,22 +120,24 @@ public struct TableItemViewModel: StringHashable, Differentiable {
         self.map = itemType.defaultDataMap
         self.style = itemType.defaultStyle
         self.differenceIdentifier = data.hashString
+        self.postLayoutStyle = nil
     }
     
     /**
      Initializes a new ListItemViewModel object with data, custom map and style. The common initializers for ListItemViewModel.
      
      - Parameters:
-       - data: Object that contains needed data for list item
-       - map: Closure that determine how to map data to list item
-       - style: Closure that determine how to stylize list item
-       - heightStyle: Determines how high the list item will be drawn (default = .automatic)
-     
+        - data: Object that contains needed data for list item
+        - map: Closure that determine how to map data to list item
+        - style: Closure that determine how to stylize list item
+        - postLayoutStyle: Closure that determine how to stylize list with applying layout
+        - heightStyle: Determines how high the list item will be drawn (default = .automatic)
      */
     public init<T: ListItemDataModel, U: TableItem>(data: T,
-                                                   map: @escaping MapDataToItem<T, U>,
-                                                   style: StyleType<U>? = nil,
-                                                   heightStyle: TableItemHeightStyle = .automatic) {
+                                                    map: @escaping MapDataToItem<T, U>,
+                                                    style: StyleType<U>? = nil,
+                                                    postLayoutStyle: ListItemStyle<U>? = nil,
+                                                    heightStyle: TableItemHeightStyle = .automatic) {
         self.data = data
         self.reuseIdentifier = U.reuseId
         self.heightStyle = heightStyle
@@ -143,22 +162,32 @@ public struct TableItemViewModel: StringHashable, Differentiable {
         } else {
             self.style = U.defaultStyle
         }
+        
+        if let style = postLayoutStyle {
+            let stylingBlock = style.styling
+            self.postLayoutStyle = { item in
+                guard let item = item as? U else { return }
+                stylingBlock(item)
+            }
+        } else {
+            self.postLayoutStyle = nil
+        }
     }
-
+    
     public init<T: ListItemDataModel, U: TableItem>(data: T,
-                                                   map: AnyListItemMapper<T, U>,
-                                                   style: StyleType<U>? = nil,
-                                                   heightStyle: TableItemHeightStyle = .automatic) {
+                                                    map: AnyListItemMapper<T, U>,
+                                                    style: StyleType<U>? = nil,
+                                                    heightStyle: TableItemHeightStyle = .automatic) {
         self.data = data
         self.reuseIdentifier = U.reuseId
         self.heightStyle = heightStyle
         self.differenceIdentifier = data.hashString
-
+        
         self.map = { dataModel, item in
             guard let dataModel = dataModel as? T, let item = item as? U else { return }
             map.map(model: dataModel, item: item)
         }
-
+        
         if let mapping = style {
             switch mapping {
             case .custom(let style):
@@ -173,6 +202,8 @@ public struct TableItemViewModel: StringHashable, Differentiable {
         } else {
             self.style = U.defaultStyle
         }
+        
+        self.postLayoutStyle = nil
     }
     
     /// Helper function

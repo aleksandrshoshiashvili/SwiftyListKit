@@ -88,11 +88,11 @@ struct ResultViewModelsMapper {
 
         let aboutMeString = showFullDescription ? user.aboutMe : String(user.aboutMe.prefix(140))
         let aboutMe = TextDataModel(text: aboutMeString)
-        let description = TableItemViewModel(data: aboutMe, map: TitleCellMapper.map, style: .custom(style: .description))
+        let description = TableItemViewModel(data: aboutMe, map: TitleCellMapper.map, postLayoutStyle: .description)
 
         let readMoreString = showFullDescription ? "Hide" : "Read more"
         let readMore = TextDataModel(tag: ActionType.readMore, text: readMoreString)
-        let readMoreViewModel = TableItemViewModel(data: readMore, map: ButtonCellMapper.map, style: .custom(style: .textual))
+        let readMoreViewModel = TableItemViewModel(data: readMore, map: ButtonCellMapper.map, postLayoutStyle: .textual)
 
         sections.append(TableListSection(header: aboutMeHeader, rows: [description, readMoreViewModel]))
 
@@ -106,7 +106,7 @@ struct ResultViewModelsMapper {
         appsViewModels.append(contentsOf: favouriteAppsViewModels)
 
         let add = TextDataModel(tag: ActionType.add, text: "Add")
-        let addViewModel = TableItemViewModel(data: add, map: ButtonCellMapper.map, style: .custom(style: .add))
+        let addViewModel = TableItemViewModel(data: add, map: ButtonCellMapper.map, postLayoutStyle: .add)
         appsViewModels.append(addViewModel)
 
         sections.append(TableListSection(header: appsHeader, rows: appsViewModels))
