@@ -17,6 +17,8 @@ public protocol AnimatedTableListProtocol: CreateTableProtocol, UpdateTableProto
     func setup(withTableStyle style: UITableView.Style)
     func setupTableRepresentation()
     func update(with sections: [TableListSection])
+
+    func getTag<T>(for cell: UITableViewCell) -> T?
 }
 
 public extension AnimatedTableListProtocol {
@@ -89,5 +91,14 @@ public extension AnimatedTableListProtocol {
         tableView.dataSource = dataSource
         tableView.delegate = syncDelegate
         dataSource.delegate = self
+    }
+
+    func getTag<T>(for cell: UITableViewCell) -> T? {
+        guard let indexPath = tableView.indexPath(for: cell),
+            let viewModel = dataSource.getViewModel(for: indexPath),
+            let tag = viewModel.data.tag as? T else {
+                return nil
+        }
+        return tag
     }
 }

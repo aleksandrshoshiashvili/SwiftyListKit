@@ -37,7 +37,7 @@ open class TableViewDataSourceAnimated<S: TableListSection>: TableViewDataSource
             delegatableItem.set(delegate: delegate)
         }
         
-        if let mapStyle = viewModel.postLayoutStyle {
+        if let mapStyle = viewModel.preLayoutStyle {
             mapStyle(listItem)
         }
 

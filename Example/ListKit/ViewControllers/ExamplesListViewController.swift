@@ -58,7 +58,7 @@ class ExamplesListViewController: BaseAnimatedTableViewController {
     // MARK: - Actions
     
     func handleDidSelectActions() {
-        syncDelegate.didSelectRow = { [weak self] _, indexPath, model in
+        syncDelegate.didSelectRow = { [weak self] _, _, model in
             guard let tag = model?.data.tag as? String,
                 let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String,
                 let any = NSClassFromString(appName + "." + tag),

@@ -54,7 +54,7 @@ final class ProfileViewController: BaseAnimatedTableViewController {
 
 extension ProfileViewController: ButtonTableViewCellDelegate {
     func buttonTableViewCellDidPressOnButton(_ cell: ButtonTableViewCell) {
-        guard let indexPath = tableView.indexPath(for: cell), let tag = dataSource.getViewModel(for: indexPath)?.data.tag as? ActionType else { return }
+        guard let tag: ActionType = getTag(for: cell) else { return }
         switch tag {
         case .readMore:
             showFullDescription.toggle()
@@ -88,11 +88,11 @@ struct ResultViewModelsMapper {
 
         let aboutMeString = showFullDescription ? user.aboutMe : String(user.aboutMe.prefix(140))
         let aboutMe = TextDataModel(text: aboutMeString)
-        let description = TableItemViewModel(data: aboutMe, map: TitleCellMapper.map, postLayoutStyle: .description)
+        let description = TableItemViewModel(data: aboutMe, map: TitleCellMapper.map, preLayoutStyle: .description)
 
         let readMoreString = showFullDescription ? "Hide" : "Read more"
         let readMore = TextDataModel(tag: ActionType.readMore, text: readMoreString)
-        let readMoreViewModel = TableItemViewModel(data: readMore, map: ButtonCellMapper.map, postLayoutStyle: .textual)
+        let readMoreViewModel = TableItemViewModel(data: readMore, map: ButtonCellMapper.map, preLayoutStyle: .textual)
 
         sections.append(TableListSection(header: aboutMeHeader, rows: [description, readMoreViewModel]))
 
@@ -106,7 +106,7 @@ struct ResultViewModelsMapper {
         appsViewModels.append(contentsOf: favouriteAppsViewModels)
 
         let add = TextDataModel(tag: ActionType.add, text: "Add")
-        let addViewModel = TableItemViewModel(data: add, map: ButtonCellMapper.map, postLayoutStyle: .add)
+        let addViewModel = TableItemViewModel(data: add, map: ButtonCellMapper.map, preLayoutStyle: .add)
         appsViewModels.append(addViewModel)
 
         sections.append(TableListSection(header: appsHeader, rows: appsViewModels))

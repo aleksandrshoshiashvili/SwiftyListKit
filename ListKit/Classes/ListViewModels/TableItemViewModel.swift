@@ -35,7 +35,7 @@ public struct TableItemViewModel: StringHashable, Differentiable {
     public let heightStyle: TableItemHeightStyle
     public let map: MapDataToItemClosure?
     public let style: MapStyleToItemClosure?
-    public let postLayoutStyle: MapStyleToItemClosure?
+    public let preLayoutStyle: MapStyleToItemClosure?
     
     public var hashString: String { return data.hashString }
     
@@ -54,7 +54,7 @@ public struct TableItemViewModel: StringHashable, Differentiable {
         self.map = itemType.defaultDataMap
         self.style = itemType.defaultStyle
         self.differenceIdentifier = data.hashString
-        self.postLayoutStyle = nil
+        self.preLayoutStyle = nil
     }
     
     /**
@@ -63,13 +63,13 @@ public struct TableItemViewModel: StringHashable, Differentiable {
      - Parameters:
         - itemType: The type of ListItem element to be displayed
         - style: Closure that determine how to stylize list item
-        - postLayoutStyle: Closure that determine how to stylize list with applying layout
+        - preLayoutStyle: Closure that determine how to stylize list with applying layout
         - heightStyle: Determines how high the list item will be drawn (default = .automatic)
      
      */
     public init<U: TableItem>(itemType: U.Type,
                               style: StyleType<U>? = nil,
-                              postLayoutStyle: ListItemStyle<U>? = nil,
+                              preLayoutStyle: ListItemStyle<U>? = nil,
                               heightStyle: TableItemHeightStyle = .automatic) {
         self.data = EmptyDataViewModel()
         self.reuseIdentifier = itemType.reuseId
@@ -91,14 +91,14 @@ public struct TableItemViewModel: StringHashable, Differentiable {
         }
         self.differenceIdentifier = data.hashString
         
-        if let style = postLayoutStyle {
+        if let style = preLayoutStyle {
             let stylingBlock = style.styling
-            self.postLayoutStyle = { item in
+            self.preLayoutStyle = { item in
                 guard let item = item as? U else { return }
                 stylingBlock(item)
             }
         } else {
-            self.postLayoutStyle = nil
+            self.preLayoutStyle = nil
         }
     }
     
@@ -120,7 +120,7 @@ public struct TableItemViewModel: StringHashable, Differentiable {
         self.map = itemType.defaultDataMap
         self.style = itemType.defaultStyle
         self.differenceIdentifier = data.hashString
-        self.postLayoutStyle = nil
+        self.preLayoutStyle = nil
     }
     
     /**
@@ -130,13 +130,13 @@ public struct TableItemViewModel: StringHashable, Differentiable {
         - data: Object that contains needed data for list item
         - map: Closure that determine how to map data to list item
         - style: Closure that determine how to stylize list item
-        - postLayoutStyle: Closure that determine how to stylize list with applying layout
+        - preLayoutStyle: Closure that determine how to stylize list with applying layout
         - heightStyle: Determines how high the list item will be drawn (default = .automatic)
      */
     public init<T: ListItemDataModel, U: TableItem>(data: T,
                                                     map: @escaping MapDataToItem<T, U>,
                                                     style: StyleType<U>? = nil,
-                                                    postLayoutStyle: ListItemStyle<U>? = nil,
+                                                    preLayoutStyle: ListItemStyle<U>? = nil,
                                                     heightStyle: TableItemHeightStyle = .automatic) {
         self.data = data
         self.reuseIdentifier = U.reuseId
@@ -163,14 +163,14 @@ public struct TableItemViewModel: StringHashable, Differentiable {
             self.style = U.defaultStyle
         }
         
-        if let style = postLayoutStyle {
+        if let style = preLayoutStyle {
             let stylingBlock = style.styling
-            self.postLayoutStyle = { item in
+            self.preLayoutStyle = { item in
                 guard let item = item as? U else { return }
                 stylingBlock(item)
             }
         } else {
-            self.postLayoutStyle = nil
+            self.preLayoutStyle = nil
         }
     }
     
@@ -203,7 +203,7 @@ public struct TableItemViewModel: StringHashable, Differentiable {
             self.style = U.defaultStyle
         }
         
-        self.postLayoutStyle = nil
+        self.preLayoutStyle = nil
     }
     
     /// Helper function

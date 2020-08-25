@@ -16,6 +16,8 @@ public protocol AnimatedCollectionListProtocol: CreateCollectionProtocol, Update
     func setup(withLayout layout: UICollectionViewLayout)
     func setupCollectionViewRepresentation()
     func update(with sections: [CollectionListSection])
+
+    func getTag<T>(for cell: UICollectionViewCell) -> T?
 }
 
 public extension AnimatedCollectionListProtocol {
@@ -82,5 +84,14 @@ public extension AnimatedCollectionListProtocol {
         collectionView.dataSource = dataSource
         collectionView.delegate = syncDelegate
         dataSource.delegate = self
+    }
+
+    func getTag<T>(for cell: UICollectionViewCell) -> T? {
+        guard let indexPath = collectionView.indexPath(for: cell),
+            let viewModel = dataSource.getViewModel(for: indexPath),
+            let tag = viewModel.data.tag as? T else {
+                return nil
+        }
+        return tag
     }
 }
