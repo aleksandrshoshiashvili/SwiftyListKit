@@ -28,8 +28,8 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
     public typealias EditingStyle = (UITableView, IndexPath, TableViewDataSource<S>.I?) -> UITableViewCell.EditingStyle
     public typealias EditActions = (UITableView, IndexPath, TableViewDataSource<S>.I?) -> [UITableViewRowAction]?
     public typealias ShouldShowMenu = ((UITableView, IndexPath, S.ItemModel?) -> Bool)
-    public typealias CanPerformAction = ((UITableView, IndexPath, Any?, S.ItemModel?) -> Bool)
-    public typealias PerformAction = ((UITableView, IndexPath, Any?, S.ItemModel?) -> Void)
+    public typealias CanPerformAction = ((UITableView, IndexPath, Selector, Any?, S.ItemModel?) -> Bool)
+    public typealias PerformAction = ((UITableView, IndexPath, Selector, Any?, S.ItemModel?) -> Void)
 
     @available(iOS 11.0, *)
     public typealias SwipeAction = (UITableView, IndexPath, TableViewDataSource<S>.I?) -> UISwipeActionsConfiguration?
@@ -297,18 +297,18 @@ open class SyncDelegate<S: TableListSection>: NSObject, UITableViewDelegate, UIS
     public func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
         do {
             let model = try dataSource.model(at: indexPath) as? S.ItemModel
-            return onCanPerformAction?(tableView, indexPath, sender, model) ?? false
+            return onCanPerformAction?(tableView, indexPath, action, sender, model) ?? false
         } catch {
-            return onCanPerformAction?(tableView, indexPath, sender, nil) ?? false
+            return onCanPerformAction?(tableView, indexPath, action, sender, nil) ?? false
         }
     }
 
     public func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
         do {
             let model = try dataSource.model(at: indexPath) as? S.ItemModel
-            onPerformAction?(tableView, indexPath, sender, model)
+            onPerformAction?(tableView, indexPath, action, sender, model)
         } catch {
-            onPerformAction?(tableView, indexPath, sender, nil)
+            onPerformAction?(tableView, indexPath, action, sender, nil)
         }
     }
 

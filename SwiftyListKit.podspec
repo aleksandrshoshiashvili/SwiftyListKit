@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftyListKit'
-  s.version          = '1.0.22'
+  s.version          = '1.0.23'
   s.summary          = 'Framework for building flexible, reusable and fast lists'
 
 # This description is used to generate tags and improve search results.
