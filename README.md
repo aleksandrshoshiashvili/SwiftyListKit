@@ -75,9 +75,9 @@ class OneTitleTableViewCell: UITableViewCell, TableItem {
 }
 ```
 
-The same you need to do for `UITableViewHeaderFooterView` and for `UICollectionReusableView`.
+You need to do the same  for `UITableViewHeaderFooterView` and for `UICollectionReusableView`.
 
-Also, if your list item has any delegate methods, for example you have cell with button inside, you need to add protocol `ListItemDelegatable` to your list item (cell, footer/header, reusable view) and add protocol `Delegatable` to your delegate protocol. Then, inside your list item class you need to implement method `func set(delegate: Delegatable)` from `ListItemDelegatable` protocol like this:
+Also, if your list item has any delegate methods, for example you have a cell with a button inside, you need to add the protocol `ListItemDelegatable` to your list item (cell, footer/header, reusable view) and add the protocol `Delegatable` to your delegate protocol. Then, inside your list item class you need to implement the method `func set(delegate: Delegatable)` from `ListItemDelegatable` protocol like this:
 
 ```swift
 protocol ButtonTableViewCellDelegate: Delegatable {
@@ -101,7 +101,7 @@ class ButtonTableViewCell: UITableViewCell, TableItem, ListItemDelegatable {
 
 ### Data model
 
-`ListItemDataModel` is a container of data needed to display the item in the list. `ListItemDataModel` responsible for calculating `hashString` — the unique `id` for your list item. `hashString` calculating automatically, but for some cases you may need to change the default calculation, so you can override it inside the data model.
+`ListItemDataModel` is a container of data needed to display the item in the list. `ListItemDataModel` is responsible for calculating `hashString` — the unique `id` for your list item. `hashString` is calculated automatically, but for some cases you may need to change the default calculation, so you can override it inside the data model.
 
 Example of the data model:
 
@@ -123,7 +123,7 @@ Note: `ListItemDataModel` should contain only `plain` data, not business objects
 
 ### Mapper
 
-Mapper — this is just a function that map your data model to your UI item. For example:
+Mapper — this is just a function that maps your data model to your UI item. For example:
 
 ```swift
 func map(model: TextWithIconDataModel, cell: IconWithTitleTableViewCell) {
@@ -152,7 +152,7 @@ struct TitleCellMapper: Mapper {
 
 ### Style
 
-`ListItemStyle` is a struct that helps apply style to a list item. Instead of configuring, for example, the label's color in a cell, you create a style and apply it to your list item.
+`ListItemStyle` is a struct that helps to apply style to a list item. Instead of configuring, for example, the label's color in a cell, you create a style and apply it to your list item.
 
 Example:
 ```swift
@@ -175,7 +175,7 @@ extension ListItemStyle where T: OneTitleTableViewCell {
 
 ### ListItemViewModel
 
-We've discussed about 4 components that make up the list item, now is the time to put them together:
+We've discussed the 4 components that make up the list item, now is the time to put them together:
 
 ```swift
 let textDataModel = TextDataModel(title: "some text here")
@@ -184,18 +184,18 @@ let viewModel = TableItemViewModel(data: textDataModel,
                                   style: .error)
 ```
 
-This view model represents `OneTitleTableViewCell` with the label with text `"some text here"` with red color in the `UITableView`.
-If you want the color to be different or the background color to be different, just change the style. Or if you want change text in the label — just change data model, or if you want to change UI (cell) — then just change the mapper. All components are easily to change.
+This view model represents `OneTitleTableViewCell` with the label containing the text `"some text here"` in red color in the `UITableView`.
+If you want the color to be different or the background color to be different, just change the style. Or if you want change text in the label — just change the data model, or if you want to change the UI (cell) — then just change the mapper. All components are easy to change.
 
 ## How to use
 
 [Example app](https://github.com/aleksandrshoshiashvili/SwiftyListKit/tree/master/Example)
 
-Let's build an ViewController with TableView with some cells. We can do it by using subclass from `BaseAnimatedTableViewController` or we can just add `AnimatedTableListProtocol` protocol to our ViewController:
+Let's build an ViewController with TableView with some cells. We can do it by subclassing `BaseAnimatedTableViewController` or we can just add `AnimatedTableListProtocol` protocol to our ViewController:
 
 
 
-Note: if you are using protocol, then you have to call `setup(withTableStyle: .plain)` method in the `viewDidLoad`.
+Note: If you are using the protocol, then you have to call the `setup(withTableStyle: .plain)` method in `viewDidLoad`.
 
 Example:
 
@@ -240,9 +240,9 @@ class ControllerWithProtocolOnly: UIViewController, AnimatedTableListProtocol {
 }
 ```
 
-This example shows how to implement ViewController with TableView with 2 sections where first section consist of 2 cells with the same UI and Map function, but with different styles and different data, and second section consist of 1 cell.
+This example shows how to implement a ViewController with a TableView containing 2 sections where the first section consist of 2 cells with the same UI and Map function, but with different styles and different data, and the second section consist of 1 cell.
 
-Note: you do not need to register cells/header/footers/reusable views, because if you are using `AnimatedTableListProtocol`, then `tableView` contains `TableViewRegistrator`, that automatically registers all list elements. You just need to make sure that reuseIdentifier of your list item match the list item's name (only for `UITableViewCell` and for `UICollectionViewCell`, for headers/footers/reusable views it doesn't matter).
+Note: You do not need to register cells/header/footers/reusable views, because if you are using `AnimatedTableListProtocol`, then `tableView` contains `TableViewRegistrator`, that automatically registers all list elements. You just need to make sure that the reuseIdentifier of your list item matches the list item's name (only for `UITableViewCell` and for `UICollectionViewCell`, for headers/footers/reusable views it doesn't matter).
 
 ### SyncDelegate
 
