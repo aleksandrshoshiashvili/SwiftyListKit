@@ -47,10 +47,9 @@ public class AnyListItemMapper<M: ListItemDataModel, I: ListItem>: ListItemMappe
     public typealias Model = M
     public typealias Item = I
 
-
     private let _map: (_ model: M, _ item: I) -> Void
 
-    init<U: ListItemMapperProtocol>(_ mapper: U) where U.Model == M, U.Item == I {
+    public init<U: ListItemMapperProtocol>(_ mapper: U) where U.Model == M, U.Item == I {
         _map = mapper.map
     }
 
